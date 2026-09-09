@@ -1,0 +1,10 @@
+﻿{
+    "cancelledBeforeInstall":  true,
+    "results":  [
+                    "Branded welcome page renders",
+                    "Welcome, license, Back and Next navigation",
+                    "Custom installation directory and Browse cancellation",
+                    "Cancel exits before installation"
+                ],
+    "passed":  4
+}

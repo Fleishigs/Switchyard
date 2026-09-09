@@ -1,4 +1,4 @@
-param([string]$Installer,[string]$Destination,[string]$ProjectRoot,[int]$ResumeProcessId=0)
+param([string]$Installer,[string]$Destination,[string]$ProjectRoot,[int]$ResumeProcessId=0,[switch]$PreviewOnly)
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName UIAutomationClient
 Add-Type -AssemblyName UIAutomationTypes
@@ -50,6 +50,14 @@ Click-Button 'Browse'
 Start-Sleep -Milliseconds 200
 [void][SetupControl]::SendMessage([IntPtr]$edit.Current.NativeWindowHandle,12,[IntPtr]::Zero,$Destination)
 Capture 'installer-directory.png';$results.Add('Custom installation directory and Browse cancellation');Write-Output 'PASS directory'
+if($PreviewOnly){
+ Click-Button 'Cancel';Start-Sleep -Milliseconds 300
+ $yes=Find-Button '^&?Yes$';if($yes){[void][SetupControl]::PostMessage([IntPtr]$yes.Current.NativeWindowHandle,245,[IntPtr]::Zero,[IntPtr]::Zero)}
+ if(-not $process.WaitForExit(15000)){throw 'Installer did not exit after cancellation.'}
+ $results.Add('Cancel exits before installation')
+ @{passed=$results.Count;results=$results;cancelledBeforeInstall=$true}|ConvertTo-Json -Depth 4|Set-Content -LiteralPath (Join-Path $ProjectRoot 'docs/verification/installer-wizard-1.0.2.json') -Encoding utf8
+ Write-Output 'PASS installer wizard and cancellation';exit 0
+}
 Click-Button '^&?Install$'
 }else{
  $results.Add('Branded welcome page renders (verified before resume)')

@@ -1,0 +1,2 @@
+Upgrading Switchyard using its full installer, process 12840
+PASS full installer upgrade to 1.0.2, archive integrity, saved state and desktop shortcut

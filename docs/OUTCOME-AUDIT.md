@@ -36,6 +36,8 @@ PDF tools have page navigation, visible range selection for extraction/deletion,
 
 [The per-tool visual review](VISUAL-TOOL-REVIEW.md) covers all 111 tools and records remaining opportunities. [The visual workflow report](verification/visual-workspace-flows.json) checks real playback and pause, byte-range seeking, pointer/keyboard handles, minimum-duration export, selected-range export, rate changes, vocal-separator source playback, PDF page selection, tray order, small-window/dark-theme layout and QR image decoding. These tests supplement the decoded-output audit rather than replacing it.
 
+[Two additional stem-player checks](verification/stem-playback-flows.json) use the actual UVR outputs from the engine audit and verify that the vocal and instrumental results each decode, play, pause and hide correctly in Queue.
+
 ## What the checks establish
 
 - Images: exact geometric mappings, color transformations, transparency, edge changes, output codecs and preservation of content.

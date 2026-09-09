@@ -1,0 +1,6 @@
+PASS welcome
+PASS license and back
+Selected Cancel / Button / ControlType.Pane / 2
+Native dialog verified: Switchyard Setup
+PASS directory
+PASS installer wizard and cancellation

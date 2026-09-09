@@ -44,7 +44,7 @@ The main changes are playable audio/video timelines, selection handles, result p
 | Remove low rumble (`audio-highpass`) | Playable source waveform with scrubbing; processed-result player. The original is explicitly labeled, so previewing it does not imply the effect has been applied. |
 | Low-pass audio (`audio-lowpass`) | Playable source waveform with scrubbing; processed-result player. The original is explicitly labeled, so previewing it does not imply the effect has been applied. |
 | Trim leading silence (`audio-silence`) | Playable source waveform with scrubbing; processed-result player. The original is explicitly labeled, so previewing it does not imply the effect has been applied. |
-| Inspect media (`audio-inspect`) | Playable source waveform with scrubbing; processed-result player. The original is explicitly labeled, so previewing it does not imply the effect has been applied. |
+| Inspect media (`audio-inspect`) | Playable source waveform and readable stream, codec, duration and sample-rate information. This inspection tool does not create a new audio file. |
 | Convert to MP4 (`video-mp4`) | Visible source playback and waveform/scrubbing; processed video/audio/image result viewers. |
 | Convert to WebM (`video-webm`) | Visible source playback and waveform/scrubbing; processed video/audio/image result viewers. |
 | Trim video (`video-trim`) | Visible video, waveform, scrubbing, draggable/keyboard In and Out handles, selection playback, numeric bounds, saved-result player. |

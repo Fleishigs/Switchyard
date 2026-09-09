@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "resources": "C:\\Users\\koshe\\Desktop\\Tech\\Ai Envroment\\Switchyard\\release-final\\win-unpacked\\resources",
+  "resources": "C:\\Users\\koshe\\AppData\\Local\\Programs\\Switchyard\\resources",
   "files": [
     {
       "file": "package.json",

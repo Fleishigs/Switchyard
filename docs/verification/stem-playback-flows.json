@@ -1,0 +1,7 @@
+{
+  "passed": 2,
+  "results": [
+    "Actual UVR Vocals output decodes, plays, pauses and hides in Queue",
+    "Actual UVR Instrumental output decodes, plays, pauses and hides in Queue"
+  ]
+}

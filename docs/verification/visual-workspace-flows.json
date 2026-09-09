@@ -3,7 +3,7 @@
   "results": [
     "Audio decodes, plays and pauses at a stable position",
     "Real decoded waveform, byte-range streaming, invalid ranges and unknown tokens",
-    "Timeline scrubbing seeks the actual media element",
+    "Timeline scrubbing and Back to beginning seek the actual media element",
     "Keyboard and pointer trim handles update the export settings",
     "Trim handles respect the minimum export duration and that interval exports",
     "Play selection starts and stops exactly at the chosen bounds",
@@ -14,8 +14,8 @@
     "Video decodes visible frames, plays, pauses and exports its selected interval",
     "Frame scrubber updates the frame extraction time",
     "PDF page navigation selects the exported page and the saved PDF previews",
-    "Tray reordering changes the actual processing order",
+    "Both tray ordering buttons change the actual processing order",
     "Multiple-file preview selection works at minimum window size in dark theme",
-    "QR output is a decoded image visible inside the application"
+    "QR output decodes, displays and hides inside the application"
   ]
 }

@@ -8,6 +8,7 @@ const special={
  'audio-fade-in':'Waveform with a visual export envelope and fade-duration slider; original playback and processed-result playback.',
  'audio-fade-out':'Waveform with a visual export envelope and fade-duration slider; original playback and processed-result playback.',
  'audio-speed':'Source playback at the selected rate with preserved pitch; processed-result playback.',
+ 'audio-inspect':'Playable source waveform and readable stream, codec, duration and sample-rate information. This inspection tool does not create a new audio file.',
  'video-speed':'Video playback at the selected rate; processed-result playback.',
  'voice-vocals':'Source waveform and playback; separate named players for vocal and instrumental output. Located in Voice & AI.',
  'voice-transcribe':'Source waveform and playback plus transcript text and subtitle export. Word-synchronized highlighting is not implemented.',
