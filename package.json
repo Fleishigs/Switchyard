@@ -1,7 +1,7 @@
 {
   "name": "switchyard",
   "productName": "Switchyard",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A local creative toolbox for Windows",
   "author": "Switchyard Contributors",
   "license": "MIT",
@@ -155,6 +155,18 @@
       {
         "from": "THIRD-PARTY-NOTICES.md",
         "to": "THIRD-PARTY-NOTICES.md"
+      },
+      {
+        "from": "engines/upscayl",
+        "to": "engines/upscayl",
+        "filter": [
+          "upscayl-bin.exe",
+          "models/**/*",
+          "LICENSE",
+          "MODEL-LICENSE.txt",
+          "provenance.json",
+          "source/**/*"
+        ]
       }
     ],
     "electronDist": "node_modules/electron/dist"

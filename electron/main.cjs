@@ -1,4 +1,4 @@
-const { openRecall } = require('./recall/main/main.js');
+const { openRecall } = require("./recall/main/main.js");
 const {
   app,
   BrowserWindow,
@@ -88,6 +88,9 @@ async function pump() {
           signal: controller.signal,
           onLog: (line) => {
             job.log = (job.log + line).slice(-6000);
+            const percentages = [...line.matchAll(/(\d+(?:\.\d+)?)%/g)];
+            if (percentages.length)
+              job.progress = Math.min(99, Number(percentages.at(-1)[1]));
             publish();
           },
         });
@@ -95,6 +98,7 @@ async function pump() {
         for (const p of result.outputs) allowed.add(p);
         job.text = result.text;
         job.status = result.failures ? "partial" : "done";
+        job.progress = 100;
       } catch (error) {
         job.error = error.message;
         job.status = controller.signal.aborted ? "cancelled" : "error";
@@ -126,12 +130,15 @@ app.whenReady().then(async () => {
       engines: { ...saved.settings?.engines },
     };
     jobs = Array.isArray(saved.jobs) ? saved.jobs.slice(0, 100) : [];
-    for (const j of jobs) for (const p of [...(j.outputs || []), ...(j.inputs || [])]) allowed.add(p);
+    for (const j of jobs)
+      for (const p of [...(j.outputs || []), ...(j.inputs || [])])
+        allowed.add(p);
   } catch {}
   const engineRoot = app.isPackaged
     ? path.join(process.resourcesPath, "engines")
     : path.join(__dirname, "../engines");
   for (const [key, relative] of Object.entries({
+    upscayl: "upscayl/upscayl-bin.exe",
     ffmpeg: "ffmpeg/ffmpeg.exe",
     ffprobe: "ffmpeg/ffprobe.exe",
     ytdlp: "yt-dlp.exe",
@@ -198,16 +205,22 @@ app.whenReady().then(async () => {
     return result.canceled ? [] : addFiles(result.filePaths);
   });
   handle("files:add", addFiles);
-  const { createMediaPreview } = await import('./media-preview.mjs');
-  const mediaPreview = createMediaPreview({ protocol, allowed, engines: settings.engines });
-  handle('files:media-preview', p => mediaPreview.preview(p));
-  handle('files:pdf-preview', async (p, number) => {
-    if (!allowed.has(p)) throw new Error('Choose this file first.');
-    const { pdfPreview } = await import('./pdf-preview.mjs');
+  const { createMediaPreview } = await import("./media-preview.mjs");
+  const mediaPreview = createMediaPreview({
+    protocol,
+    allowed,
+    engines: settings.engines,
+  });
+  handle("files:media-preview", (p) => mediaPreview.preview(p));
+  handle("files:waveform", (p) => mediaPreview.waveform(p));
+  handle("files:thumbnails", (p) => mediaPreview.thumbnails(p));
+  handle("files:pdf-preview", async (p, number) => {
+    if (!allowed.has(p)) throw new Error("Choose this file first.");
+    const { pdfPreview } = await import("./pdf-preview.mjs");
     return pdfPreview(p, number);
   });
-  app.once('before-quit', () => mediaPreview.dispose());
-  handle("files:preview", async (p) => {
+  app.once("before-quit", () => mediaPreview.dispose());
+  handle("files:preview", async (p, detail = false) => {
     if (!allowed.has(p)) throw new Error("Choose this file first.");
     const sharp = (await import("sharp")).default;
     const meta = await sharp(p).metadata();
@@ -215,8 +228,8 @@ app.whenReady().then(async () => {
     const buffer = await sharp(p)
       .rotate()
       .resize({
-        width: 1000,
-        height: 700,
+        width: detail ? 4096 : 1000,
+        height: detail ? 4096 : 700,
         fit: "inside",
         withoutEnlargement: true,
       })
@@ -253,6 +266,8 @@ app.whenReady().then(async () => {
       folder: path.join(data(), "Outputs", id),
       outputs: [],
       inputs: [...request.files],
+      options: { ...request.options },
+      inputText: request.text || "",
       log: "",
       request,
     };
@@ -296,7 +311,13 @@ app.whenReady().then(async () => {
       windowsHide: false,
       detached: true,
       stdio: "ignore",
-      env: { ...process.env, SWITCHYARD_ENGINES: engineRoot, ...(process.env.SWITCHYARD_TEST_DATA ? {SWITCHYARD_VOICE_TEST_DATA:path.join(data(),"Voice")} : {}) },
+      env: {
+        ...process.env,
+        SWITCHYARD_ENGINES: engineRoot,
+        ...(process.env.SWITCHYARD_TEST_DATA
+          ? { SWITCHYARD_VOICE_TEST_DATA: path.join(data(), "Voice") }
+          : {}),
+      },
     });
     child.unref();
     return true;
@@ -313,13 +334,16 @@ app.whenReady().then(async () => {
   handle("engines:choose", async (key) => {
     if (
       ![
+        "upscayl",
         "ffmpeg",
         "ffprobe",
         "ytdlp",
         "whisper",
         "whisperModel",
         "separator",
-        'office','pandoc','sevenz',
+        "office",
+        "pandoc",
+        "sevenz",
       ].includes(key)
     )
       throw new Error("Unknown engine");
@@ -342,8 +366,8 @@ app.whenReady().then(async () => {
       ["ytdlp", "yt-dlp", ["--version"]],
       ["whisper", null, ["--help"]],
       ["separator", null, ["--version"]],
-      ['pandoc',null,['--version']],
-      ['sevenz',null,['i']],
+      ["pandoc", null, ["--version"]],
+      ["sevenz", null, ["i"]],
     ]) {
       const exe = settings.engines[key] || fallback;
       if (!exe) {
@@ -366,7 +390,17 @@ app.whenReady().then(async () => {
       }
     }
     status.whisperModel = { ready: false, detail: "Not configured" };
-    for(const key of ['office']){try{await fs.access(settings.engines[key]);status[key]={ready:true,detail:'Bundled conversion engine available'};}catch{status[key]={ready:false,detail:'Not configured'};}}
+    for (const key of ["office", "upscayl"]) {
+      try {
+        await fs.access(settings.engines[key]);
+        status[key] = {
+          ready: true,
+          detail: "Bundled conversion engine available",
+        };
+      } catch {
+        status[key] = { ready: false, detail: "Not configured" };
+      }
+    }
     if (settings.engines.whisperModel)
       try {
         const s = await fs.stat(settings.engines.whisperModel);

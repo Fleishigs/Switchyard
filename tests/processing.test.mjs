@@ -103,7 +103,10 @@ for (const tool of tools.filter(
     const text = textFixture(tool.id);
     const result = await processTool(
       { toolId: tool.id, files, text, options: defaults(tool) },
-      { outputDir: path.join(root, tool.id) },
+      {
+        outputDir: path.join(root, tool.id),
+        engines: { upscayl: path.resolve("engines/upscayl/upscayl-bin.exe") },
+      },
     );
     assert.ok(result.outputs.length > 0);
     for (const output of result.outputs)

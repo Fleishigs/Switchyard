@@ -1,3 +1,4 @@
+import { upscale } from "./upscaler.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
@@ -180,6 +181,7 @@ export async function processTool(
     throw new Error("Add at least one input file.");
   if (files.length > 100) throw new Error("Use at most 100 files per job.");
   await fs.mkdir(outputDir, { recursive: true });
+  if (toolId === "image-upscale") return upscale(files, o, context, command);
   if (toolId === "batch-convert")
     return convertBatch({ files, options }, context, command);
   if (extraIds.has(toolId))
@@ -218,7 +220,12 @@ export async function processTool(
       switch (toolId) {
         case "image-enhance":
           s = s.normalise({ lower: 1, upper: 99 }).sharpen({
-            sigma: 0.8, m1: 0, m2: 1.5, x1: 3, y2: 8, y3: 8,
+            sigma: 0.8,
+            m1: 0,
+            m2: 1.5,
+            x1: 3,
+            y2: 8,
+            y3: 8,
           });
           break;
         case "image-resize":
@@ -287,9 +294,14 @@ export async function processTool(
       const p = out(`${i + 1}-${path.parse(file).name}.${ext}`);
       // PNG's `quality` option enables palette quantization, even for crop/flip.
       // Keep edits lossless; apply quality only to explicitly lossy export tools.
-      await s.toFormat(ext, ext === "png"
-        ? { compressionLevel: 3 }
-        : { quality: Math.round(o.quality ?? 85) }).toFile(p);
+      await s
+        .toFormat(
+          ext,
+          ext === "png"
+            ? { compressionLevel: 3 }
+            : { quality: Math.round(o.quality ?? 85) },
+        )
+        .toFile(p);
       outputs.push(p);
     }
   } else if (tool.kind === "pdf") {
@@ -527,16 +539,43 @@ export async function processTool(
         case "audio-normalize":
           {
             let analysis = "";
-            await command(ffmpeg, ["-nostdin", "-hide_banner", "-i", file,
-              "-vn", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json",
-              "-f", "null", "-"], { signal, onLog: (line) => { analysis += line; onLog?.(line); } });
+            await command(
+              ffmpeg,
+              [
+                "-nostdin",
+                "-hide_banner",
+                "-i",
+                file,
+                "-vn",
+                "-af",
+                "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json",
+                "-f",
+                "null",
+                "-",
+              ],
+              {
+                signal,
+                onLog: (line) => {
+                  analysis += line;
+                  onLog?.(line);
+                },
+              },
+            );
             const match = analysis.match(/\{\s*"input_i"[\s\S]*?\}/);
             if (!match) throw new Error("Could not measure input loudness.");
             const measured = JSON.parse(match[0]);
-            const fields = ["input_i", "input_tp", "input_lra", "input_thresh", "target_offset"];
-            filters.push(fields.every(key => Number.isFinite(Number(measured[key])))
-              ? `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${measured.input_i}:measured_TP=${measured.input_tp}:measured_LRA=${measured.input_lra}:measured_thresh=${measured.input_thresh}:offset=${measured.target_offset}:linear=true`
-              : "anull");
+            const fields = [
+              "input_i",
+              "input_tp",
+              "input_lra",
+              "input_thresh",
+              "target_offset",
+            ];
+            filters.push(
+              fields.every((key) => Number.isFinite(Number(measured[key])))
+                ? `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${measured.input_i}:measured_TP=${measured.input_tp}:measured_LRA=${measured.input_lra}:measured_thresh=${measured.input_thresh}:offset=${measured.target_offset}:linear=true`
+                : "anull",
+            );
           }
           break;
         case "audio-volume":
@@ -598,12 +637,16 @@ export async function processTool(
           args.push("-crf", String(o.crf));
           break;
         case "video-gif":
+          if (o.duration > 30)
+            throw new Error(
+              "GIF selections are limited to 30 seconds. Shorten the selected interval.",
+            );
           ext = "gif";
           args.push(
             "-ss",
             String(o.start),
             "-t",
-            String(Math.min(o.duration, 30)),
+            String(o.duration),
             "-vf",
             "fps=12,scale=480:-1:flags=lanczos",
             "-an",

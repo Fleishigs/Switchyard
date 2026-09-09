@@ -14,18 +14,27 @@ contextBridge.exposeInMainWorld("switchyard", {
   exportFile: invoke("output:export"),
   preview: invoke("files:preview"),
   mediaPreview: invoke("files:media-preview"),
+  waveform: invoke("files:waveform"),
+  thumbnails: invoke("files:thumbnails"),
   pdfPreview: invoke("files:pdf-preview"),
   saveSettings: invoke("settings:save"),
   messages: {
-    initialize: async () => { await ipcRenderer.invoke('recall:open'); return ipcRenderer.invoke('recall:get-initial'); },
-    open: invoke('recall:open-backup'),
-    importContacts: invoke('recall:import-contacts'),
-    thread: invoke('recall:get-thread'),
-    search: invoke('recall:search'),
-    clear: invoke('recall:clear-all'),
-    exportXml: invoke('recall:export-xml'),
-    pickExport: invoke('recall:pick-backup-path'),
-    onProgress: fn => { const listener = (_, value) => fn(value); ipcRenderer.on('export-progress', listener); return () => ipcRenderer.removeListener('export-progress', listener); },
+    initialize: async () => {
+      await ipcRenderer.invoke("recall:open");
+      return ipcRenderer.invoke("recall:get-initial");
+    },
+    open: invoke("recall:open-backup"),
+    importContacts: invoke("recall:import-contacts"),
+    thread: invoke("recall:get-thread"),
+    search: invoke("recall:search"),
+    clear: invoke("recall:clear-all"),
+    exportXml: invoke("recall:export-xml"),
+    pickExport: invoke("recall:pick-backup-path"),
+    onProgress: (fn) => {
+      const listener = (_, value) => fn(value);
+      ipcRenderer.on("export-progress", listener);
+      return () => ipcRenderer.removeListener("export-progress", listener);
+    },
   },
   launchVoice: invoke("voice:launch"),
   engineStatus: invoke("engines:status"),

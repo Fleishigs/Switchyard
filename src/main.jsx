@@ -34,18 +34,17 @@ import {
   tools,
   categories,
   toolById,
-  defaults,
   searchTools,
 } from "../shared/catalog.mjs";
 import "./style.css";
-import CropPreview from "./CropPreview.jsx";
+import ToolWorkbench from "./ToolWorkbench.jsx";
+import { uniqueFiles } from "../shared/workflows.mjs";
 import MessagesView from "./MessagesView.jsx";
 import BatchConverter from "./BatchConverter.jsx";
 import ImageComparison from "./ImageComparison.jsx";
-import { MediaResults } from './MediaTimeline.jsx';
-import { PdfResults } from './DocumentPreview.jsx';
-import VisualWorkspace from './VisualWorkspace.jsx';
-import ImageResults from './ImageResults.jsx';
+import { MediaResults } from "./MediaTimeline.jsx";
+import { PdfResults } from "./DocumentPreview.jsx";
+import ImageResults from "./ImageResults.jsx";
 const api = window.switchyard;
 const icons = {
   Images: Image,
@@ -68,10 +67,7 @@ function App() {
     [query, setQuery] = useState(""),
     [selected, setSelected] = useState(null),
     [files, setFiles] = useState([]),
-    [input, setInput] = useState(""),
-    [options, setOptions] = useState({}),
     [error, setError] = useState(""),
-    [preview, setPreview] = useState(""),
     [status, setStatus] = useState({}),
     [message, setMessage] = useState(""),
     [chat, setChat] = useState([]),
@@ -130,45 +126,16 @@ function App() {
     }
   }
   function choose(t) {
+    document.querySelectorAll("audio,video").forEach((p) => p.pause());
     if (t.id === "batch-convert") {
       setView("Batch converter");
       return;
     }
     setSelected(t);
-    setOptions(defaults(t));
-    setPreview("");
     setError("");
   }
-  useEffect(() => {
-    let current = true;
-    if (selected?.kind === "image" && files[0])
-      api
-        ?.preview(files[0].path)
-        .then((value) => {
-          if (current) {
-            setPreview(value);
-            if (selected.id === "image-crop")
-              setOptions((previous) => ({
-                ...previous,
-                left: 0,
-                top: 0,
-                width: Math.min(previous.width, value.width),
-                height: Math.min(previous.height, value.height),
-              }));
-          }
-        })
-        .catch(() => {
-          if (current) setPreview("");
-        });
-    return () => {
-      current = false;
-    };
-  }, [selected, files]);
   function mergeFiles(next) {
-    setFiles((prev) => [
-      ...prev,
-      ...next.filter((n) => !prev.some((p) => p.path === n.path)),
-    ]);
+    setFiles((prev) => uniqueFiles([...prev, ...next]));
   }
   async function pick() {
     await attempt(async () => mergeFiles(await api.pick()));
@@ -178,18 +145,6 @@ function App() {
     await attempt(async () => {
       const paths = [...e.dataTransfer.files].map((f) => api.pathForFile(f));
       mergeFiles(await api.addPaths(paths));
-    });
-  }
-  async function run() {
-    await attempt(async () => {
-      await api.run({
-        toolId: selected.id,
-        files: files.map((f) => f.path),
-        text: input,
-        options,
-      });
-      setView("Queue");
-      setSelected(null);
     });
   }
   function favorite(id) {
@@ -468,11 +423,23 @@ function App() {
                         )}
                       </div>
                       {j.error && <p className="job-error">{j.error}</p>}
-                      {j.startedAt && j.finishedAt && <p className="job-duration">Processing time: {((j.finishedAt-j.startedAt)/1000).toFixed(2)} seconds</p>}
-                      {j.status === 'done' && <ImageComparison job={j} api={api} />}
-                      {j.status === 'done' && <MediaResults job={j} api={api} />}
-                      {j.status === 'done' && <PdfResults job={j} api={api} />}
-                      {j.status === 'done' && <ImageResults job={j} api={api} />}
+                      {j.startedAt && j.finishedAt && (
+                        <p className="job-duration">
+                          Processing time:{" "}
+                          {((j.finishedAt - j.startedAt) / 1000).toFixed(2)}{" "}
+                          seconds
+                        </p>
+                      )}
+                      {j.status === "done" && (
+                        <ImageComparison job={j} api={api} />
+                      )}
+                      {j.status === "done" && (
+                        <MediaResults job={j} api={api} />
+                      )}
+                      {j.status === "done" && <PdfResults job={j} api={api} />}
+                      {j.status === "done" && (
+                        <ImageResults job={j} api={api} />
+                      )}
                       {j.text !== undefined && (
                         <div className="text-result">
                           <pre>{j.text.slice(0, 10000)}</pre>
@@ -585,6 +552,11 @@ function App() {
                     "office",
                     "LibreOffice",
                     "Document, spreadsheet, and presentation conversions.",
+                  ],
+                  [
+                    "upscayl",
+                    "Upscayl NCNN",
+                    "Local AI photo and artwork upscaling. Vulkan GPU required.",
                   ],
                   ["sevenz", "7-Zip", "Archive inspection and conversion."],
                 ].map(([key, title, desc]) => (
@@ -731,7 +703,7 @@ function App() {
                     </p>
                     <button
                       className="hero-action"
-                      onClick={() => choose(toolById["image-enhance"])}
+                      onClick={() => choose(toolById["image-upscale"])}
                     >
                       Make something better <ArrowRight size={21} />
                     </button>
@@ -850,7 +822,36 @@ function App() {
               >
                 <X size={16} />
               </button>
-              {files.length > 1 && <div className="file-order"><button aria-label={'Move up ' + f.name} disabled={i === 0} onClick={() => setFiles(prev => { const next = [...prev]; [next[i-1], next[i]] = [next[i], next[i-1]]; return next; })}>↑</button><button aria-label={'Move down ' + f.name} disabled={i === files.length-1} onClick={() => setFiles(prev => { const next = [...prev]; [next[i+1], next[i]] = [next[i], next[i+1]]; return next; })}>↓</button></div>}
+              {files.length > 1 && (
+                <div className="file-order">
+                  <button
+                    aria-label={"Move up " + f.name}
+                    disabled={i === 0}
+                    onClick={() =>
+                      setFiles((prev) => {
+                        const next = [...prev];
+                        [next[i - 1], next[i]] = [next[i], next[i - 1]];
+                        return next;
+                      })
+                    }
+                  >
+                    ↑
+                  </button>
+                  <button
+                    aria-label={"Move down " + f.name}
+                    disabled={i === files.length - 1}
+                    onClick={() =>
+                      setFiles((prev) => {
+                        const next = [...prev];
+                        [next[i + 1], next[i]] = [next[i], next[i + 1]];
+                        return next;
+                      })
+                    }
+                  >
+                    ↓
+                  </button>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -892,154 +893,14 @@ function App() {
         </div>
       </aside>
       {selected && (
-        <div
-          className="modal-backdrop"
-          onMouseDown={(e) => {
-            if (e.target === e.currentTarget) setSelected(null);
-          }}
-        >
-          <section
-            className="tool-dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="tool-title"
-          >
-            <div className="dialog-heading">
-              <span className={"tool-symbol c-" + selected.kind}>
-                {React.createElement(icons[selected.category], {
-                  size: 27,
-                  weight: "duotone",
-                })}
-              </span>
-              <div>
-                <p className="eyebrow">{selected.category}</p>
-                <h2 id="tool-title">{selected.name}</h2>
-              </div>
-              <button
-                autoFocus
-                className="icon-button"
-                aria-label="Close tool"
-                onClick={() => setSelected(null)}
-              >
-                <X size={23} />
-              </button>
-            </div>
-            <p>{selected.description}</p>
-            {error && (
-              <div role="alert" className="error">
-                {error}
-              </div>
-            )}
-            <div className="dialog-body">
-              <VisualWorkspace key={selected.id} files={files} tool={selected} options={options} onChange={setOptions} api={api} />
-              {preview && selected.id === "image-crop" ? (
-                <CropPreview
-                  preview={preview}
-                  options={options}
-                  onChange={setOptions}
-                />
-              ) : (
-                preview && (
-                  <div className="image-preview">
-                    <img src={preview.url} alt="Selected input preview" />
-                  </div>
-                )
-              )}
-              {selected.kind === "text" ? (
-                <label className="text-input">
-                  Input text
-                  <textarea
-                    aria-label="Input text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder="Type or paste your content here…"
-                    spellCheck={false}
-                  />
-                </label>
-              ) : selected.kind !== "download" ? (
-                <div className="input-summary">
-                  <Stack size={22} />
-                  <span>
-                    {files.length
-                      ? `${files.length} file${files.length === 1 ? "" : "s"} from your tray`
-                      : "Add input files to continue"}
-                    <small>
-                      {files
-                        .slice(0, 3)
-                        .map((f) => f.name)
-                        .join(" · ")}
-                    </small>
-                  </span>
-                  <button className="secondary" onClick={pick}>
-                    Add files
-                  </button>
-                </div>
-              ) : null}
-              <div className="option-grid">
-                {selected.options.map((o) => (
-                  <label key={o.key}>
-                    {o.label}
-                    {selected.id === 'text-diff' && o.key === 'other' ? <textarea value={options[o.key] ?? ''} onChange={e => setOptions({...options, [o.key]:e.target.value})} rows={6} spellCheck={false} /> : o.type === "select" ? (
-                      <select
-                        value={options[o.key]}
-                        onChange={(e) =>
-                          setOptions({ ...options, [o.key]: e.target.value })
-                        }
-                      >
-                        {o.options.map((x) => (
-                          <option key={x}>{x}</option>
-                        ))}
-                      </select>
-                    ) : (
-                      <input
-                        type={o.type}
-                        min={o.min}
-                        max={o.max}
-                        step="any"
-                        value={options[o.key] ?? ""}
-                        onChange={(e) =>
-                          setOptions({
-                            ...options,
-                            [o.key]:
-                              o.type === "number"
-                                ? e.target.value === ""
-                                  ? ""
-                                  : Number(e.target.value)
-                                : e.target.value,
-                          })
-                        }
-                      />
-                    )}
-                  </label>
-                ))}
-              </div>
-              {selected.kind === "engine" && (
-                <p className="hint">
-                  Requires a configured local engine. Check Engines before your
-                  first run.
-                </p>
-              )}
-              {selected.kind === "download" && (
-                <p className="hint">
-                  Use a public URL for content you own or have permission to
-                  download. Site restrictions and availability still apply.
-                </p>
-              )}
-            </div>
-            <footer className="dialog-footer">
-              <span>New output files · originals preserved</span>
-              <button
-                className="primary"
-                disabled={
-                  !["text", "download"].includes(selected.kind) && !files.length
-                }
-                onClick={run}
-              >
-                <Play size={19} weight="fill" /> Run tool
-              </button>
-            </footer>
-          </section>
-        </div>
+        <ToolWorkbench
+          initialTool={selected}
+          library={files}
+          jobs={state.jobs}
+          api={api}
+          onAddFiles={mergeFiles}
+          onClose={() => setSelected(null)}
+        />
       )}
     </div>
   );

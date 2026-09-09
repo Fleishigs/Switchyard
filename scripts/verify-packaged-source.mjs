@@ -1,7 +1,7 @@
 import * as asar from '@electron/asar';import fs from 'node:fs/promises';import path from 'node:path';import {createHash} from 'node:crypto';import assert from 'node:assert/strict';
 const root=path.resolve('.'),resources=process.argv[2]?path.resolve(process.argv[2]):path.join(root,'release-final/win-unpacked/resources');
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');const results=[];
-for(const file of ['package.json','electron/media-preview.mjs','electron/pdf-preview.mjs','electron/main.cjs','electron/preload.cjs','electron/processor.mjs','electron/converter.mjs','electron/extras.mjs','electron/recall/main/main.js','electron/recall/main/export-xml.js','electron/recall/main/parsers/ndjson.js','shared/catalog.mjs','shared/formats.mjs','dist/index.html']){
+for(const file of ['package.json','electron/upscaler.mjs','electron/media-preview.mjs','electron/pdf-preview.mjs','electron/main.cjs','electron/preload.cjs','electron/processor.mjs','electron/converter.mjs','electron/extras.mjs','electron/recall/main/main.js','electron/recall/main/export-xml.js','electron/recall/main/parsers/ndjson.js','shared/catalog.mjs','shared/formats.mjs','dist/index.html']){
  const sourceBytes=await fs.readFile(path.join(root,file)),packagedBytes=asar.extractFile(path.join(resources,'app.asar'),path.normalize(file));
  if(file==='package.json'){
   // electron-builder removes development-only metadata from the release manifest.

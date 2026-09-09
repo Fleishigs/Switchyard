@@ -1,0 +1,43 @@
+{
+  "engineRelease": "20251207-174704",
+  "engineArchiveSha256": "1f0f65c5d2ade866555e2ac467d35952c35a47080a4060fe56a1ab028f67258a",
+  "source": "https://github.com/upscayl/upscayl-ncnn/tree/20251207-174704",
+  "models": [
+    {
+      "file": "upscayl-standard-4x.bin",
+      "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/resources/models/upscayl-standard-4x.bin",
+      "bytes": 33424520,
+      "sha256": "713ee713b0353afaa27976f0563a64a5043bd70b9bd8936c2e26e25ebcdbcddf"
+    },
+    {
+      "file": "upscayl-standard-4x.param",
+      "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/resources/models/upscayl-standard-4x.param",
+      "bytes": 116029,
+      "sha256": "35330ececcea33b6c397a72548e788d5d53becee4734c50b7fada36e89f10a86"
+    },
+    {
+      "file": "upscayl-lite-4x.bin",
+      "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/resources/models/upscayl-lite-4x.bin",
+      "bytes": 2435272,
+      "sha256": "85ee266b632a765a725425ba6a5620c088c8aa2939a03063b2d83b3462724cc1"
+    },
+    {
+      "file": "upscayl-lite-4x.param",
+      "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/resources/models/upscayl-lite-4x.param",
+      "bytes": 5019,
+      "sha256": "22174924330297357434ad21ed0af7f4b820008d2a502b492754d130d4142714"
+    },
+    {
+      "file": "digital-art-4x.bin",
+      "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/resources/models/digital-art-4x.bin",
+      "bytes": 8943500,
+      "sha256": "fe01c269cfd10cdef8e018ab66ebe750cf79c7af4d1f9c16c737e1295229bacc"
+    },
+    {
+      "file": "digital-art-4x.param",
+      "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/resources/models/digital-art-4x.param",
+      "bytes": 30290,
+      "sha256": "2b8fb6e0ae4d2d85704ca08c119a2f5ea40add4f2ecd512eb7f4cd44b6127ed4"
+    }
+  ]
+}

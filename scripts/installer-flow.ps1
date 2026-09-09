@@ -55,7 +55,7 @@ if($PreviewOnly){
  $yes=Find-Button '^&?Yes$';if($yes){[void][SetupControl]::PostMessage([IntPtr]$yes.Current.NativeWindowHandle,245,[IntPtr]::Zero,[IntPtr]::Zero)}
  if(-not $process.WaitForExit(15000)){throw 'Installer did not exit after cancellation.'}
  $results.Add('Cancel exits before installation')
- @{passed=$results.Count;results=$results;cancelledBeforeInstall=$true}|ConvertTo-Json -Depth 4|Set-Content -LiteralPath (Join-Path $ProjectRoot 'docs/verification/installer-wizard-1.0.2.json') -Encoding utf8
+ @{passed=$results.Count;results=$results;cancelledBeforeInstall=$true}|ConvertTo-Json -Depth 4|Set-Content -LiteralPath (Join-Path $ProjectRoot ('docs/verification/installer-wizard-'+(Get-Content (Join-Path $ProjectRoot 'package.json') -Raw | ConvertFrom-Json).version+'.json')) -Encoding utf8
  Write-Output 'PASS installer wizard and cancellation';exit 0
 }
 Click-Button '^&?Install$'

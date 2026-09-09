@@ -23,3 +23,8 @@ Additional JavaScript and native dependencies, including React, Sharp, PDF.js, p
 FFmpeg, Pandoc, LibreOffice, and other components have licensing terms distinct from Switchyard's MIT license. This local build is assembled for this workstation. Before publishing a redistributed installer, provide the corresponding source and notices required by each included build and verify the redistribution terms for model weights. No public distribution is performed by this project setup.
 
 Message parsing and XML conversion were adapted from the user's existing Fig message-backup application. Its original project is unchanged.
+
+
+## Upscayl NCNN and models
+
+The separately executed, unmodified Upscayl NCNN engine is AGPL-3.0 licensed, not MIT. Its license and release provenance are bundled in engines/upscayl. Engine source: https://github.com/upscayl/upscayl-ncnn/tree/20251207-174704 . Model weights are from https://github.com/upscayl/upscayl/tree/main/resources/models ; hashes and original source URLs are recorded in provenance.json, and the upstream Real-ESRGAN model license is included as MODEL-LICENSE.txt. Switchyard is not an official Upscayl distribution. Other bundled components retain their respective licenses.

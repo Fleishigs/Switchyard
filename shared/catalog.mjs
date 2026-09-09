@@ -21,7 +21,7 @@ const size = [
 const quality = [field("quality", "Quality", 85, 1, 100)];
 const time = [
   field("start", "Start · seconds", 0, 0, 86400),
-  field("duration", "Duration · seconds", 10, 0.1, 86400),
+  field("duration", "Duration · seconds", 10, 0.001, 86400),
 ];
 export const tools = [];
 function add(category, kind, rows) {
@@ -30,8 +30,22 @@ function add(category, kind, rows) {
 }
 add("Images", "image", [
   [
+    "image-upscale",
+    "AI image enhancement",
+    "Upscale photos and artwork with real local Upscayl models. Requires a Vulkan-capable GPU.",
+    [
+      select("model", "AI model", "Upscayl Lite", [
+        "Upscayl Lite",
+        "Upscayl Standard",
+        "Digital Art",
+      ]),
+      select("scale", "Output scale", "2", ["2", "4"]),
+      select("format", "Output format", "PNG", ["PNG", "JPEG", "WebP"]),
+    ],
+  ],
+  [
     "image-enhance",
-    "Enhance image",
+    "Adjust photo contrast",
     "Improve contrast and edge definition. Local photo adjustment, not AI deblurring or upscaling.",
   ],
   [
@@ -230,7 +244,7 @@ add("Video", "video", [
   [
     "video-gif",
     "Video to GIF",
-    "Turn a short clip into an animated GIF.",
+    "Turn a selected clip of up to 30 seconds into an animated GIF.",
     time,
   ],
   [
