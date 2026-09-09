@@ -1,0 +1,23 @@
+{
+  "passed": 18,
+  "results": [
+    "Native Add files cancellation",
+    "Native file selection, duplicate suppression and individual removal",
+    "Hero opens enhancement; Escape closes settings",
+    "Search keyboard shortcut and empty results",
+    "All four task suggestion buttons",
+    "Task finder empty-match recovery",
+    "Engine picker cancellation preserves setting",
+    "FFmpeg native executable/model picker",
+    "FFprobe native executable/model picker",
+    "yt-dlp native executable/model picker",
+    "Whisper CLI native executable/model picker",
+    "Whisper model native executable/model picker",
+    "UVR separator native executable/model picker",
+    "Pandoc native executable/model picker",
+    "LibreOffice native executable/model picker",
+    "7-Zip native executable/model picker",
+    "Refresh verifies all nine engine statuses",
+    "Theme and engine choices survive a full restart"
+  ]
+}

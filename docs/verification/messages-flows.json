@@ -1,0 +1,20 @@
+{
+  "passed": 15,
+  "results": [
+    "Messages embedded in the Switchyard window without Recall branding",
+    "cancel import",
+    "load Fig ZIP",
+    "conversation body and actual attachment rendering",
+    "contact name override in conversation",
+    "global message search",
+    "in-conversation search",
+    "XML save cancellation",
+    "XML export including attachments",
+    "invalid import preserves messages",
+    "shared light and dark theme",
+    "navigate away and back, one application window",
+    "laptop layout without horizontal overflow",
+    "cancel clear",
+    "clear preserves original backup"
+  ]
+}

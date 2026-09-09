@@ -1,0 +1,13 @@
+import {_electron} from 'playwright';import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';
+const root=path.resolve('.'),work=path.join(root,'.runtime-drop-'+Date.now());await fs.mkdir(work,{recursive:true});const file=path.join(work,'dropped.txt');await fs.writeFile(file,'Synthetic native drag and drop');
+const env={...process.env,SWITCHYARD_TEST_DATA:path.join(work,'profile')};delete env.ELECTRON_RUN_AS_NODE;const config={executablePath:path.join(root,'release-final/win-unpacked/Switchyard.exe'),env};let app=await _electron.launch(config);const results=[];
+try{
+ let page=await app.firstWindow();page.setDefaultTimeout(20000);await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setTitle('Switchyard verification - drag and drop'));
+ await page.getByRole('button',{name:'Switchyard home'}).waitFor();const cdp=await page.context().newCDPSession(page);const tray=await page.locator('.tray').boundingBox();assert.ok(tray);const data={items:[],files:[file],dragOperationsMask:1};
+ const drop=async()=>{for(const type of ['dragEnter','dragOver','drop'])await cdp.send('Input.dispatchDragEvent',{type,x:tray.x+tray.width/2,y:tray.y+150,data});};
+ await drop();await page.locator('.tray-file').waitFor();assert.match(await page.locator('.tray-file').innerText(),/dropped.txt/);results.push('Native Chromium file drag/drop reaches Electron file-path bridge');
+ await drop();await page.waitForTimeout(200);assert.equal(await page.locator('.tray-file').count(),1);await page.getByRole('button',{name:'Clear tray',exact:true}).click();assert.equal(await page.locator('.tray-file').count(),0);results.push('Repeated drops are deduplicated; Clear tray removes them');
+ await page.getByRole('button',{name:'Favorite Enhance image',exact:true}).click();await page.getByRole('button',{name:'Unfavorite Enhance image',exact:true}).waitFor();await app.close();app=await _electron.launch(config);page=await app.firstWindow();await page.getByRole('button',{name:'Unfavorite Enhance image',exact:true}).waitFor();results.push('Favorite survives full application restart');
+ await page.getByRole('button',{name:/^Favorites/}).click();assert.equal(await page.locator('.tool-card').count(),1);await page.getByRole('button',{name:'Unfavorite Enhance image',exact:true}).click();await page.getByRole('heading',{name:'Nothing here yet'}).waitFor();results.push('Unfavorite updates saved collection and empty state');
+ await fs.writeFile(path.join(root,'docs/verification/drop-flows.json'),JSON.stringify({passed:results.length,results},null,2));console.log(results);
+}finally{await app.close();}

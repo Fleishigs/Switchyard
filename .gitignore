@@ -1,0 +1,25 @@
+node_modules/
+dist/
+release/
+.runtime*/
+engines/
+outputs/
+voice/bin/
+voice/obj/
+voice/publish/
+
+release-final/
+docs/verification/*.wav
+docs/verification/*.mp3
+docs/verification/*.mp4
+docs/verification/*failure*.png
+
+tests/voice-harness/bin/
+tests/voice-harness/obj/
+
+electron/recall/renderer/
+electron/recall/main/preload.js
+docs/verification/recall*
+
+# Verification generates local logs and screenshots; curated evidence is force-added.
+docs/verification/

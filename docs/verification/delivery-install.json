@@ -1,0 +1,11 @@
+﻿{
+    "destination":  "C:\\Users\\koshe\\AppData\\Local\\Programs\\Switchyard",
+    "shortcut":  "C:\\Users\\koshe\\Desktop\\Switchyard.lnk",
+    "appArchiveSha256":  "1CEDE7F8FB7201F7FBE595ABCE9698A54E8226FB723E6EC65AE41659C27ED783",
+    "results":  [
+                    "Silent per-user installation exits successfully",
+                    "Desktop shortcut points to delivery executable",
+                    "Installed archive matches tested package"
+                ],
+    "passed":  true
+}

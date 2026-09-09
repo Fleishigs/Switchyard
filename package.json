@@ -1,0 +1,187 @@
+{
+  "name": "switchyard",
+  "productName": "Switchyard",
+  "version": "1.0.1",
+  "description": "A local creative toolbox for Windows",
+  "author": "Switchyard Contributors",
+  "license": "MIT",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "start": "electron .",
+    "test": "node --test tests/*.test.mjs",
+    "package": "npm run build && electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "local.switchyard.desktop",
+    "productName": "Switchyard",
+    "directories": {
+      "output": "release-final"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "shared/**/*",
+      "package.json",
+      "LICENSE",
+      "!electron/recall/renderer/**/*",
+      "!electron/recall/main/preload.js",
+      "README.md",
+      "THIRD-PARTY-NOTICES.md"
+    ],
+    "asarUnpack": [
+      "node_modules/sharp/**/*",
+      "node_modules/@img/**/*",
+      "node_modules/@napi-rs/**/*",
+      "node_modules/tesseract.js/**/*",
+      "node_modules/tesseract.js-core/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "Switchyard-Setup-${version}.${ext}",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerSidebar": "build/sidebar.bmp",
+      "uninstallerSidebar": "build/sidebar.bmp",
+      "installerHeader": "build/header.bmp",
+      "license": "LICENSE",
+      "include": "build/installer.nsh"
+    },
+    "extraResources": [
+      {
+        "from": "engines/ffmpeg",
+        "to": "engines/ffmpeg"
+      },
+      {
+        "from": "engines/whisper/Release",
+        "to": "engines/whisper",
+        "filter": [
+          "whisper-cli.exe",
+          "*.dll",
+          "LICENSE"
+        ]
+      },
+      {
+        "from": "engines/ggml-tiny.en.bin",
+        "to": "engines/ggml-tiny.en.bin"
+      },
+      {
+        "from": "engines/yt-dlp.exe",
+        "to": "engines/yt-dlp.exe"
+      },
+      {
+        "from": "voice/publish",
+        "to": "voice"
+      },
+      {
+        "from": "LICENSE",
+        "to": "LICENSE"
+      },
+      {
+        "from": "engines/separator",
+        "to": "engines/separator",
+        "filter": [
+          "**/*",
+          "!**/__pycache__/**",
+          "!**/tests/**",
+          "!**/*.pyc"
+        ]
+      },
+      {
+        "from": "engines/models",
+        "to": "engines/models"
+      },
+      {
+        "from": "engines/separator-runner.py",
+        "to": "engines/separator-runner.py"
+      },
+      {
+        "from": "engines/yt-dlp-LICENSE",
+        "to": "engines/yt-dlp-LICENSE"
+      },
+      {
+        "from": "engines/ocr",
+        "to": "engines/ocr",
+        "filter": [
+          "**/*",
+          "!**/*.msi",
+          "!pandoc-3.11/**/*"
+        ]
+      },
+      {
+        "from": "engines/pandoc",
+        "to": "engines/pandoc",
+        "filter": [
+          "**/*",
+          "!**/*.msi",
+          "!pandoc-3.11/**/*"
+        ]
+      },
+      {
+        "from": "engines/office",
+        "to": "engines/office",
+        "filter": [
+          "**/*",
+          "!**/*.msi",
+          "!pandoc-3.11/**/*"
+        ]
+      },
+      {
+        "from": "engines/7zip",
+        "to": "engines/7zip",
+        "filter": [
+          "**/*",
+          "!**/*.msi",
+          "!pandoc-3.11/**/*"
+        ]
+      },
+      {
+        "from": "engines/format-runner.py",
+        "to": "engines/format-runner.py"
+      },
+      {
+        "from": "README.md",
+        "to": "README.md"
+      },
+      {
+        "from": "THIRD-PARTY-NOTICES.md",
+        "to": "THIRD-PARTY-NOTICES.md"
+      }
+    ],
+    "electronDist": "node_modules/electron/dist"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@napi-rs/canvas": "^1.0.8",
+    "@phosphor-icons/react": "^2.1.10",
+    "diff": "^9.0.0",
+    "fast-xml-parser": "^5.11.1",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.3.289",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sharp": "^0.35.4",
+    "tesseract.js": "^7.0.0",
+    "yaml": "^2.9.0",
+    "yauzl": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "electron": "^44.3.0",
+    "electron-builder": "^26.15.3",
+    "fflate": "^0.8.3",
+    "playwright": "^1.63.0",
+    "prettier": "^3.9.6",
+    "vite": "^8.2.2"
+  }
+}

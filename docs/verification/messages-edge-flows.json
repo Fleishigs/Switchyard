@@ -1,0 +1,13 @@
+{
+  "passed": 8,
+  "results": [
+    "large conversation pagination: 200, 400, 450 messages",
+    "back to conversation selection",
+    "audio playback, video playback and shared vCard attachment",
+    "cancel alternate backup selection",
+    "convert a different backup without replacing current conversations",
+    "missing attachment error preserves an existing export",
+    "invalid ZIP preserves current backup",
+    "clear confirmation Escape"
+  ]
+}

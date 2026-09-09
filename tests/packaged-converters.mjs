@@ -1,0 +1,21 @@
+import {_electron} from 'playwright';import fs from 'node:fs/promises';import path from 'node:path';import assert from 'node:assert/strict';import sharp from 'sharp';import {PDFDocument} from 'pdf-lib';import {DatabaseSync} from 'node:sqlite';import {command} from '../electron/processor.mjs';import {TestZip} from './zip-fixture.mjs';
+const root=path.resolve('.'),work=path.join(root,'.runtime-packaged-convert-'+Date.now());await fs.mkdir(work,{recursive:true});
+const env={...process.env,SWITCHYARD_TEST_DATA:path.join(work,'profile')};delete env.ELECTRON_RUN_AS_NODE;
+const app=await _electron.launch({executablePath:process.env.SWITCHYARD_TEST_EXE||path.join(root,'release-final/win-unpacked/Switchyard.exe'),env,args:['--mute-audio']});const results=[];
+try{
+ await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setTitle('Switchyard verification - conversion engines'));const page=await app.firstWindow();await page.getByRole('button',{name:'Switchyard home'}).waitFor();const engines=(await page.evaluate(()=>window.switchyard.state())).settings.engines;
+ const sources={},targets={};async function add(family,extension,target,data){const file=path.join(work,family+'.'+extension);if(data!==undefined)await fs.writeFile(file,data);sources[family]=file;targets[file]=target;return file;}
+ await sharp(Buffer.from('<svg width="900" height="200"><rect width="900" height="200" fill="white"/><text x="30" y="125" font-size="70" fill="black">SWITCHYARD LOCAL OCR</text></svg>')).png().toFile(await add('image','png','webp'));
+ await command(engines.ffmpeg,['-nostdin','-v','error','-f','lavfi','-i','sine=frequency=440:duration=1',await add('audio','wav','mp3')]);await command(engines.ffmpeg,['-nostdin','-v','error','-f','lavfi','-i','color=c=green:s=160x120:d=1','-c:v','libx264',await add('video','mp4','webm')]);
+ await add('document','md','pdf','# Switchyard\n\nPackaged document engine verification.');await add('spreadsheet','csv','xlsx','Name,Value\nSwitchyard,42');
+ await command(engines.pandoc,['--sandbox',sources.document,'-o',await add('presentation','pptx','pdf')]);const pdf=await PDFDocument.create();pdf.addPage().drawText('Packaged PDF engine',{x:25,y:300});await add('pdf','pdf','png',await pdf.save());
+ const zip=new TestZip();zip.addFile('hello.txt',Buffer.from('Packaged archive engine'));zip.writeZip(await add('archive','zip','7z'));
+ await fs.copyFile('C:/Windows/Fonts/arial.ttf',await add('font','ttf','woff2'));await command(engines.separator,['-c','import trimesh,sys; trimesh.creation.box().export(sys.argv[1])',await add('mesh','stl','glb')]);await add('subtitle','srt','vtt','1\n00:00:00,000 --> 00:00:01,000\nPackaged subtitles\n');
+ const db=new DatabaseSync(await add('database','sqlite','json'));db.exec("CREATE TABLE example (name TEXT); INSERT INTO example VALUES ('Switchyard')");db.close();await add('data','json','yaml','{"package":true}');
+ await page.evaluate(files=>window.switchyard.addPaths(files),Object.values(sources));
+ const batchId=await page.evaluate(({files,targets})=>window.switchyard.run({toolId:'batch-convert',files,options:{targets},text:''}),{files:Object.values(sources),targets});
+ const waitJob=async(id,timeout)=>{const end=Date.now()+timeout;while(Date.now()<end){const j=(await page.evaluate(()=>window.switchyard.state())).jobs.find(j=>j.id===id);if(j&&['done','partial','error','cancelled'].includes(j.status))return j;await new Promise(r=>setTimeout(r,150));}throw new Error('Job timed out: '+id);};const batch=await waitJob(batchId,600000);assert.equal(batch.status,'done',batch.error||batch.text);assert.ok(batch.outputs.length>=14);for(const file of batch.outputs)assert.ok((await fs.stat(file)).size>0);results.push('all 13 conversion families run from bundled executable and engines');
+ const ocrId=await page.evaluate(file=>window.switchyard.run({toolId:'image-ocr',files:[file],options:{},text:''}),sources.image);
+ const ocr=await waitJob(ocrId,120000);assert.equal(ocr.status,'done',ocr.error);assert.match(ocr.text,/SWITCHYARD/i);results.push('packaged OCR worker, WASM and local English model');
+ await fs.writeFile(path.join(root,'docs/verification/packaged-converters.json'),JSON.stringify({passed:results.length,results},null,2));console.log(results);
+}finally{await app.close();}

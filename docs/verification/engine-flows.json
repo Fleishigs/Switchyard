@@ -1,0 +1,72 @@
+{
+  "pass": true,
+  "results": [
+    {
+      "flow": "all bundled engines detected",
+      "pass": true
+    },
+    {
+      "tool": "voice-transcribe",
+      "pass": true,
+      "outputs": 2
+    },
+    {
+      "tool": "voice-vocals",
+      "pass": true,
+      "outputs": 2
+    },
+    {
+      "tool": "download-video",
+      "pass": true,
+      "bytes": 82005356
+    },
+    {
+      "tool": "download-audio",
+      "pass": true,
+      "bytes": 8180972
+    },
+    {
+      "flow": "microphone permission, recording, stop, local audio file",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "status": {
+    "ffmpeg": {
+      "ready": true,
+      "detail": "ffmpeg version 8.0-essentials_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers"
+    },
+    "ffprobe": {
+      "ready": true,
+      "detail": "ffprobe version 8.0-essentials_build-www.gyan.dev Copyright (c) 2007-2025 the FFmpeg developers"
+    },
+    "ytdlp": {
+      "ready": true,
+      "detail": "2026.08.19"
+    },
+    "whisper": {
+      "ready": true,
+      "detail": "Available"
+    },
+    "separator": {
+      "ready": true,
+      "detail": "separator-runner.py 0.47.0"
+    },
+    "pandoc": {
+      "ready": true,
+      "detail": "pandoc 3.11"
+    },
+    "sevenz": {
+      "ready": true,
+      "detail": "Available"
+    },
+    "whisperModel": {
+      "ready": true,
+      "detail": "74 MB model"
+    },
+    "office": {
+      "ready": true,
+      "detail": "Bundled conversion engine available"
+    }
+  }
+}

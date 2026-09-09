@@ -1,0 +1,38 @@
+import { _electron } from 'playwright';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {TestZip as AdmZip} from './zip-fixture.mjs';
+import sharp from 'sharp';
+const root=path.resolve('.'), work=path.join(root,'.runtime-recall-'+Date.now());
+await fs.mkdir(work,{recursive:true});
+const messages=[{_id:'1',thread_id:'1',address:'+15555550101',date:'1780000000000',type:'1',body:'Synthetic hello שלום',__display_name:'Studio'}, {_id:'2',thread_id:'1',date:'1780000001',msg_box:'1',__sender_address:{address:'+15555550101',__display_name:'Studio'},__parts:[{ct:'image/png',_data:'/data/PART_test'}]}];
+const zip=new AdmZip(); zip.addFile('messages.ndjson',Buffer.from(messages.map(JSON.stringify).join('\n'))); zip.addFile('data/PART_test',await sharp({create:{width:30,height:30,channels:3,background:'green'}}).png().toBuffer());
+const backup=path.join(work,'fig.zip');zip.writeZip(backup);
+const vcf=path.join(work,'names.vcf');await fs.writeFile(vcf,'BEGIN:VCARD\nVERSION:3.0\nFN:Workshop Friend\nTEL:+15555550101\nEND:VCARD');
+const bad=path.join(work,'bad.ndjson');await fs.writeFile(bad,'null');
+const env={...process.env,SWITCHYARD_TEST_DATA:path.join(work,'profile')};delete env.ELECTRON_RUN_AS_NODE;
+const app=await _electron.launch({executablePath:process.env.SWITCHYARD_TEST_EXE||path.join(root,'node_modules/electron/dist/electron.exe'),args:process.env.SWITCHYARD_TEST_EXE?[]:[root],env});
+const results=[],errors=[];
+const pick=async file=>app.evaluate(({dialog},file)=>{dialog.showOpenDialog=async()=>file?({canceled:false,filePaths:[file]}):({canceled:true,filePaths:[]});},file);
+const save=async file=>app.evaluate(({dialog},file)=>{dialog.showSaveDialog=async()=>file?({canceled:false,filePath:file}):({canceled:true});},file);
+try {
+ const page=await app.firstWindow();page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')console.log('BROWSER',m.text())});page.on('requestfailed',r=>console.log('FAILED',r.url(),r.failure()));await page.getByRole('button',{name:'Messages',exact:true}).click();await page.getByRole('heading',{name:'Messages',exact:true}).waitFor();
+ assert.equal(app.windows().length,1);assert.equal(await page.getByText('Recall',{exact:true}).count(),0);results.push('Messages embedded in the Switchyard window without Recall branding');
+ await page.screenshot({path:path.join(root,'docs/verification/messages-empty.png')});
+ await pick(null);await page.getByRole('button',{name:'Open Fig backup',exact:true}).click();await page.getByRole('heading',{name:/Old messages/ }).waitFor();results.push('cancel import');
+ await pick(backup);await page.getByRole('button',{name:'Open Fig backup',exact:true}).click();await page.locator('.messages-thread').first().waitFor();results.push('load Fig ZIP');
+ await page.locator('.messages-thread').first().click();await page.getByText('Synthetic hello', {exact:false}).last().waitFor();await page.waitForFunction(()=>[...document.querySelectorAll('.message-bubble img')].some(img=>img.complete&&img.naturalWidth===30));results.push('conversation body and actual attachment rendering');
+ await pick(vcf);await page.getByRole('button',{name:'Import contacts',exact:true}).click();await page.getByRole('heading',{name:'Workshop Friend',exact:true}).waitFor();results.push('contact name override in conversation');
+ await page.getByRole('textbox',{name:'Search all messages'}).fill('Synthetic');await page.getByText('1 matches',{exact:true}).waitFor();results.push('global message search');await page.getByRole('button',{name:'Clear message search'}).click();
+ await page.getByRole('textbox',{name:'Search this conversation'}).fill('no-match');await page.getByText('No messages match this search.',{exact:true}).waitFor();await page.getByRole('textbox',{name:'Search this conversation'}).fill('');results.push('in-conversation search');
+ await save(null);await page.getByRole('button',{name:'Export XML',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.messages-toolbar button').disabled);results.push('XML save cancellation');
+ const xml=path.join(work,'export.xml');await save(xml);await page.getByRole('button',{name:'Export XML',exact:true}).click();await page.getByRole('status').filter({hasText:'Exported 2 messages and 1 attachments'}).waitFor();assert.match(await fs.readFile(xml,'utf8'),/<smses count="2"/);results.push('XML export including attachments');
+ await pick(bad);await page.getByRole('button',{name:'Open Fig backup',exact:true}).click();await page.getByRole('alert').filter({hasText:'Invalid Fig'}).waitFor();assert.equal(await page.locator('.messages-thread').count(),1);results.push('invalid import preserves messages');await page.getByRole('button',{name:'Dismiss message error'}).click();
+ await page.screenshot({path:path.join(root,'docs/verification/messages-light.png')});await page.getByRole('button',{name:'Toggle theme'}).click();await page.screenshot({path:path.join(root,'docs/verification/messages-dark.png')});await page.getByRole('button',{name:'Toggle theme'}).click();results.push('shared light and dark theme');
+ await page.getByRole('button',{name:/^All tools/}).click();await page.getByRole('button',{name:'Messages',exact:true}).click();await page.locator('.messages-thread').first().waitFor();assert.equal(app.windows().length,1);results.push('navigate away and back, one application window');
+ await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setSize(1100,760));await page.locator('.messages-thread').first().click();await page.screenshot({path:path.join(root,'docs/verification/messages-laptop.png')});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));results.push('laptop layout without horizontal overflow');
+ await page.getByRole('button',{name:'Clear imported messages'}).click();await page.getByRole('button',{name:'Keep messages'}).click();assert.equal(await page.locator('.messages-thread').count(),1);results.push('cancel clear');
+ await page.getByRole('button',{name:'Clear imported messages'}).click();await page.getByRole('button',{name:'Clear imported data',exact:true}).click();await page.getByRole('heading',{name:/Old messages/ }).waitFor();assert.ok(await fs.stat(backup));results.push('clear preserves original backup');
+ assert.deepEqual(errors,[]);await fs.writeFile(path.join(root,'docs/verification/messages-flows.json'),JSON.stringify({passed:results.length,results},null,2));console.log(results);
+}catch(error){ const page=await app.firstWindow(); await page.screenshot({path:path.join(root,'docs/verification/messages-failure.png')}); console.log(await page.locator('.messages-workspace').innerText());console.log(await page.locator('.message-bubble img').evaluateAll(imgs=>imgs.map(i=>({src:i.src,width:i.naturalWidth,complete:i.complete}))));throw error;}finally{await app.close();}

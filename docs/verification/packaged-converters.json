@@ -1,0 +1,7 @@
+{
+  "passed": 2,
+  "results": [
+    "all 13 conversion families run from bundled executable and engines",
+    "packaged OCR worker, WASM and local English model"
+  ]
+}

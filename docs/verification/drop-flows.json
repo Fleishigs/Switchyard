@@ -1,0 +1,9 @@
+{
+  "passed": 4,
+  "results": [
+    "Native Chromium file drag/drop reaches Electron file-path bridge",
+    "Repeated drops are deduplicated; Clear tray removes them",
+    "Favorite survives full application restart",
+    "Unfavorite updates saved collection and empty state"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "passed": 6,
+  "results": [
+    "empty batch picker, mixed files and compatible target selection",
+    "mixed batch succeeds for supported files and reports unsupported file",
+    "reuse result files",
+    "save output",
+    "small-image crop defaults and three crop presets",
+    "drag crop selection produces correct smaller image"
+  ]
+}

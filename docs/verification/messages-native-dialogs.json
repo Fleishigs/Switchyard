@@ -1,0 +1,11 @@
+{
+  "passed": 6,
+  "results": [
+    "Open Fig backup displays actual Windows picker; Cancel works",
+    "Welcome button imports using actual Windows picker",
+    "Open Fig backup imports a ZIP using the actual Windows picker",
+    "Native contact file selection",
+    "Native Save XML dialog writes correct file",
+    "Full application restart restores messages and contact names"
+  ]
+}

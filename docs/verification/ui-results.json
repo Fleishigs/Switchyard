@@ -1,0 +1,12 @@
+{
+  "pass": true,
+  "results": [
+    "111 tools visible",
+    "favorites persist in UI",
+    "text input → processing → output",
+    "command tool matching",
+    "engine detection",
+    "laptop layout without overflow"
+  ],
+  "errors": []
+}

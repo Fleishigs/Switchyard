@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "resources": "C:\\Users\\koshe\\AppData\\Local\\SwitchyardInstallVerification\\resources",
+  "files": [
+    {
+      "file": "package.json",
+      "sha256": "a0cdf5b13226e99e1ca37116ff47e7ee2bb30214c9b7c7be170333c583fd037f"
+    },
+    {
+      "file": "electron/main.cjs",
+      "sha256": "b87a390682c79a824a296b8b301669535110048fd1468700462412008b0d5c30"
+    },
+    {
+      "file": "electron/preload.cjs",
+      "sha256": "f2ddc35781bbd8076164a3684b815b7e39d56afd177ef9e9bdd47109e145fb1e"
+    },
+    {
+      "file": "electron/processor.mjs",
+      "sha256": "5338d0b36e174369b881685b331e7c41a269db46b3910c8dfd16d2d224a7b9f9"
+    },
+    {
+      "file": "electron/converter.mjs",
+      "sha256": "46dfbd36e5e23a8d8319548f40938eb78e4064d68011301b01cc41aec2072f95"
+    },
+    {
+      "file": "electron/extras.mjs",
+      "sha256": "825df9ada40fa6296cf245dc9c7842d5bf0db497888ed0bc66b0a9dff8dfb25b"
+    },
+    {
+      "file": "electron/recall/main/main.js",
+      "sha256": "8816f231e9fcfd20505ad4272170645b3770ea03d0bea11fd8896647c68b809b"
+    },
+    {
+      "file": "electron/recall/main/export-xml.js",
+      "sha256": "116ff3fdfff7c5c4cacb099f9aef24f34cf7f4e0debe8483465c3462de43a08f"
+    },
+    {
+      "file": "electron/recall/main/parsers/ndjson.js",
+      "sha256": "af4e7b3bf453d752f9fcfdcb0d38a66b5706ba0665d87c956f1492c2fcd6ed39"
+    },
+    {
+      "file": "shared/catalog.mjs",
+      "sha256": "2fb5770f3344277d488d3ac0cea749a7d7388fabf87602ad9f21964242140cb3"
+    },
+    {
+      "file": "shared/formats.mjs",
+      "sha256": "b104e4bce7cc7faa245a85a81d20b02f8ad6b0a77c4239a07b433916626bc9f3"
+    },
+    {
+      "file": "dist/index.html",
+      "sha256": "f3bdc5775b9ecb647c252d37a27380fbbbb5ce559d3d366a3d00cc113fe98004"
+    },
+    {
+      "file": "voice/SwitchyardVoice.exe",
+      "sha256": "b558ef596d669b009d8f8f8333f9e919288bc6663dae30c2379a6f29a2b9fab5"
+    },
+    {
+      "file": "voice/SwitchyardVoice.dll",
+      "sha256": "f2bdef6c82be1e321f3da33962a43ab35d6fd7c403c44ed4402685cd4cd27865"
+    }
+  ]
+}

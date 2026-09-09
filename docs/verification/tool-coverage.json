@@ -1,0 +1,563 @@
+{
+  "passed": true,
+  "registered": 111,
+  "covered": 111,
+  "scope": "Supported processing routes with representative fixtures; not exhaustive input or setting combinations.",
+  "results": [
+    {
+      "id": "image-enhance",
+      "name": "Enhance image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-resize",
+      "name": "Resize image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-crop",
+      "name": "Crop image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-jpeg",
+      "name": "Convert to JPEG",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-png",
+      "name": "Convert to PNG",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-webp",
+      "name": "Convert to WebP",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-avif",
+      "name": "Convert to AVIF",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-rotate",
+      "name": "Rotate image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-flip",
+      "name": "Flip vertically",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-mirror",
+      "name": "Mirror horizontally",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-grayscale",
+      "name": "Black & white",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-blur",
+      "name": "Blur image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-sharpen",
+      "name": "Sharpen image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-brightness",
+      "name": "Adjust brightness",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-saturation",
+      "name": "Adjust saturation",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-negative",
+      "name": "Invert colors",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-trim",
+      "name": "Trim image border",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-thumbnail",
+      "name": "Square thumbnail",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-border",
+      "name": "Add image border",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-metadata",
+      "name": "Inspect image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-strip",
+      "name": "Remove image metadata",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-wav",
+      "name": "Convert to WAV",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-mp3",
+      "name": "Convert to MP3",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-flac",
+      "name": "Convert to FLAC",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-aac",
+      "name": "Convert to AAC",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-opus",
+      "name": "Convert to Opus",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-trim",
+      "name": "Trim audio",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-normalize",
+      "name": "Normalize loudness",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-volume",
+      "name": "Adjust audio gain",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-fade-in",
+      "name": "Fade in",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-fade-out",
+      "name": "Fade out",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-reverse",
+      "name": "Reverse audio",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-speed",
+      "name": "Change audio speed",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-mono",
+      "name": "Convert to mono",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-denoise",
+      "name": "Reduce steady noise",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-highpass",
+      "name": "Remove low rumble",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-lowpass",
+      "name": "Low-pass audio",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-silence",
+      "name": "Trim leading silence",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "audio-inspect",
+      "name": "Inspect media",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-mp4",
+      "name": "Convert to MP4",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-webm",
+      "name": "Convert to WebM",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-trim",
+      "name": "Trim video",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-mute",
+      "name": "Remove video audio",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-extract",
+      "name": "Extract audio",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-resize",
+      "name": "Resize video",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-compress",
+      "name": "Compress video",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-gif",
+      "name": "Video to GIF",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-frame",
+      "name": "Extract video frame",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-rotate",
+      "name": "Rotate video",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-mirror",
+      "name": "Mirror video",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "video-speed",
+      "name": "Change video speed",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-merge",
+      "name": "Merge PDFs",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-extract",
+      "name": "Extract PDF pages",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-rotate",
+      "name": "Rotate PDF pages",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-reverse",
+      "name": "Reverse PDF pages",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-metadata",
+      "name": "Inspect PDF",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-images",
+      "name": "Images to PDF",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-stats",
+      "name": "Text statistics",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-upper",
+      "name": "Uppercase",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-lower",
+      "name": "Lowercase",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-title",
+      "name": "Title case",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-slug",
+      "name": "URL slug",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-sort",
+      "name": "Sort lines",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-unique",
+      "name": "Deduplicate lines",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-trim",
+      "name": "Clean whitespace",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-json",
+      "name": "Format JSON",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-json-min",
+      "name": "Minify JSON",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-base64",
+      "name": "Encode Base64",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-unbase64",
+      "name": "Decode Base64",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-url",
+      "name": "URL encode",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-unurl",
+      "name": "URL decode",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-sha256",
+      "name": "SHA-256 hash",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-uuid",
+      "name": "Generate UUIDs",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-password",
+      "name": "Generate password",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-qr",
+      "name": "Create QR code",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "download-video",
+      "name": "Download video",
+      "evidence": "engine-flows.json"
+    },
+    {
+      "id": "download-audio",
+      "name": "Download audio",
+      "evidence": "engine-flows.json"
+    },
+    {
+      "id": "voice-transcribe",
+      "name": "Local transcription",
+      "evidence": "engine-flows.json"
+    },
+    {
+      "id": "voice-vocals",
+      "name": "Separate vocals",
+      "evidence": "engine-flows.json"
+    },
+    {
+      "id": "batch-convert",
+      "name": "Batch file converter",
+      "evidence": "packaged-converters.json"
+    },
+    {
+      "id": "image-pixelate",
+      "name": "Pixelate image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-tint",
+      "name": "Tint image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-threshold",
+      "name": "Threshold image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-rounded",
+      "name": "Round image corners",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-contact",
+      "name": "Make contact sheet",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-watermark",
+      "name": "Watermark image",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-palette",
+      "name": "Extract color palette",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-split",
+      "name": "Split PDF pages",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-delete",
+      "name": "Delete PDF pages",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-number",
+      "name": "Number PDF pages",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-watermark",
+      "name": "Watermark PDF",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-text",
+      "name": "Extract PDF text",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-render",
+      "name": "PDF pages to PNG",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "pdf-edit-info",
+      "name": "Edit PDF information",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-csv-json",
+      "name": "CSV to JSON",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-json-csv",
+      "name": "JSON to CSV",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-html-escape",
+      "name": "Escape HTML",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-html-unescape",
+      "name": "Unescape HTML",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-number-lines",
+      "name": "Number text lines",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-replace",
+      "name": "Find and replace",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-diff",
+      "name": "Compare two texts",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-jwt",
+      "name": "Inspect JWT",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "text-pdf",
+      "name": "Text to PDF",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "unit-length",
+      "name": "Length converter",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "unit-mass",
+      "name": "Mass converter",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "unit-temperature",
+      "name": "Temperature converter",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "unit-storage",
+      "name": "Data size converter",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "date-distance",
+      "name": "Date difference",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "number-base",
+      "name": "Number base converter",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "color-inspect",
+      "name": "Color inspector",
+      "evidence": "all-flows.json"
+    },
+    {
+      "id": "image-ocr",
+      "name": "Read text from image",
+      "evidence": "packaged-converters.json"
+    }
+  ]
+}

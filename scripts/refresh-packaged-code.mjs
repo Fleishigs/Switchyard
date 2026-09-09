@@ -1,0 +1,11 @@
+import * as asar from '@electron/asar';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+const root=path.resolve('.'),resources=path.join(root,'release-final/win-unpacked/resources');
+const stage=await fs.mkdtemp(path.join(root,'.runtime-package-refresh-'));
+asar.extractAll(path.join(resources,'app.asar'),stage);
+for(const file of ['electron/converter.mjs','electron/main.cjs','package.json']) await fs.copyFile(path.join(root,file),path.join(stage,file));
+await fs.cp(path.join(root,'dist'),path.join(stage,'dist'),{recursive:true});
+await asar.createPackageWithOptions(stage,path.join(resources,'app.asar'),{unpackDir:'node_modules/{sharp,@img,@napi-rs,tesseract.js,tesseract.js-core}',unpack:'**/*.{node,dll}'});
+await fs.cp(path.join(root,'voice/publish'),path.join(resources,'voice'),{recursive:true});
+console.log('Refreshed converter and voice code in packaged application. Re-run packaged verification and rebuild the installer before delivery.');

@@ -1,0 +1,9 @@
+{
+  "passed": 4,
+  "results": [
+    "cancel queued job",
+    "cancel running engine job",
+    "queue recovers and executes next job",
+    "cancelled and completed history survive restart"
+  ]
+}

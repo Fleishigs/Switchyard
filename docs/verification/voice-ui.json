@@ -1,0 +1,11 @@
+﻿{
+    "passed":  6,
+    "results":  [
+                    "All voice controls render",
+                    "Whisper and model buttons use real Windows file pickers",
+                    "Mode selection and auto-paste toggle persist in an isolated profile",
+                    "Copy transcript button copies synthetic text",
+                    "Start recording and Cancel reset capture without transcription",
+                    "Stop recording completes local transcription with commands and auto-paste disabled"
+                ]
+}

@@ -1,0 +1,539 @@
+{
+  "pass": true,
+  "results": [
+    {
+      "tool": "image-enhance",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-resize",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-crop",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-jpeg",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-png",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-webp",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-avif",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-rotate",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-flip",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-mirror",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-grayscale",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-blur",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-sharpen",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-brightness",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-saturation",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-negative",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-trim",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-thumbnail",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-border",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-metadata",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-strip",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-wav",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-mp3",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-flac",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-aac",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-opus",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-trim",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-normalize",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-volume",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-fade-in",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-fade-out",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-reverse",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-speed",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-mono",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-denoise",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-highpass",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-lowpass",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-silence",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "audio-inspect",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-mp4",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-webm",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-trim",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-mute",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-extract",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-resize",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-compress",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-gif",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-frame",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-rotate",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-mirror",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "video-speed",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-merge",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-extract",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-rotate",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-reverse",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-metadata",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-images",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-stats",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-upper",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-lower",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-title",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-slug",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-sort",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-unique",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-trim",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-json",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-json-min",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-base64",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-unbase64",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-url",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-unurl",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-sha256",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-uuid",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-password",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-qr",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-pixelate",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-tint",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-threshold",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-rounded",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-contact",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-watermark",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "image-palette",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-split",
+      "pass": true,
+      "outputs": 2
+    },
+    {
+      "tool": "pdf-delete",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-number",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-watermark",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-text",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "pdf-render",
+      "pass": true,
+      "outputs": 2
+    },
+    {
+      "tool": "pdf-edit-info",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-csv-json",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-json-csv",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-html-escape",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-html-unescape",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-number-lines",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-replace",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-diff",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-jwt",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "text-pdf",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "unit-length",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "unit-mass",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "unit-temperature",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "unit-storage",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "date-distance",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "number-base",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "tool": "color-inspect",
+      "pass": true,
+      "outputs": 1
+    },
+    {
+      "flow": "invalid JSON shows job error",
+      "pass": true
+    },
+    {
+      "flow": "clipboard and save-as",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
