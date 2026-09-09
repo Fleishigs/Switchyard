@@ -1,0 +1,27 @@
+{
+  "passed": 7,
+  "results": [
+    {
+      "flow": "UI run to completed image result with measured processing duration",
+      "visibleMs": 748
+    },
+    {
+      "flow": "Both actual previews decode and keyboard slider reveals different pixels"
+    },
+    {
+      "flow": "Slider keyboard increments and Hide comparison work"
+    },
+    {
+      "flow": "Source and result comparison survives full application restart"
+    },
+    {
+      "flow": "Missing original gives visible feedback and preserves saved output"
+    },
+    {
+      "flow": "Different dimensions use paired previews with accurate output size"
+    },
+    {
+      "flow": "Comparison remains usable at minimum window size and in dark theme"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+(node:10124) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ batch image → png (10168.9327ms)
+✔ batch image → jpg (160.0204ms)
+✔ batch image → webp (160.8856ms)
+✔ batch image → avif (188.9732ms)
+✖ batch image → tiff (193.8992ms)
+✔ batch image → gif (269.3638ms)
+✔ batch image → bmp (451.6231ms)
+✔ batch image → ico (220.1222ms)
+✔ batch image → tga (208.1991ms)
+✔ batch audio → wav (146.4137ms)
+✔ batch audio → mp3 (211.1013ms)
+✔ batch audio → flac (324.504ms)
+✔ batch audio → m4a (386.3569ms)
+✔ batch audio → aac (351.0174ms)
+✔ batch audio → ogg (446.4905ms)
+✔ batch audio → opus (282.0005ms)
+✔ batch audio → aiff (199.9009ms)
+✔ batch audio → wma (201.3673ms)
+✔ batch audio → ac3 (252.4567ms)
+✔ batch video → mp4 (347.9222ms)
+✔ batch video → mkv (518.4523ms)
+✔ batch video → webm (428.3724ms)
+✔ batch video → avi (332.163ms)
+✔ batch video → mov (409.5758ms)
+✔ batch video → mpeg (251.9672ms)
+✔ batch video → ts (285.0202ms)
+✔ batch video → gif (264.3507ms)
+✔ batch video → wav (258.3931ms)
+✔ batch video → mp3 (245.2562ms)
+✔ batch video → flac (209.5058ms)
+✔ batch video → m4a (268.1618ms)
+✔ batch video → opus (202.3914ms)
+✔ batch document → pdf (40564.2729ms)
+✔ batch document → docx (279.5456ms)
+✔ batch document → odt (403.328ms)
+✔ batch document → rtf (72.8507ms)
+✔ batch document → html (132.5659ms)
+✔ batch document → txt (63.4014ms)
+✔ batch document → md (5.5549ms)
+✔ batch document → rst (77.3867ms)
+✔ batch document → epub (224.3874ms)
+✔ batch document → fb2 (146.1294ms)
+✔ batch document → tex (239.5652ms)
+✔ batch document → org (102.3588ms)
+✔ batch spreadsheet → xlsx (19842.1973ms)
+✔ batch spreadsheet → ods (27788.4746ms)
+✔ batch spreadsheet → csv (10.273ms)
+✔ batch spreadsheet → tsv (18807.9231ms)
+✔ batch spreadsheet → pdf (19000.8843ms)
+✔ batch spreadsheet → html (16282.9711ms)
+✔ batch presentation → pptx (138.5426ms)
+Warning: TT: undefined function: 21
+Warning: TT: undefined function: 21
+✔ batch presentation → ppt (51585.0244ms)
+✔ batch presentation → odp (22254.5412ms)
+Warning: TT: undefined function: 21
+Warning: TT: undefined function: 21
+✔ batch presentation → pdf (26033.4896ms)
+✔ batch pdf → png (217.541ms)
+✔ batch pdf → jpg (170.3714ms)
+✔ batch pdf → txt (8.9376ms)
+✔ batch pdf → docx (253.9283ms)
+✔ batch pdf → odt (211.4758ms)
+✔ batch archive → zip (68.9759ms)
+✔ batch archive → 7z (182.3834ms)
+✔ batch archive → tar (172.2262ms)
+✔ batch font → woff (685.9797ms)
+✔ batch font → woff2 (4078.5153ms)
+✔ batch font → sfnt (495.9292ms)
+✔ batch mesh → stl (1546.1199ms)
+✔ batch mesh → obj (3025.924ms)
+✔ batch mesh → ply (3034.8641ms)
+✔ batch mesh → off (3034.7702ms)
+✔ batch mesh → glb (3019.6092ms)
+✔ batch subtitle → srt (72.7535ms)
+✔ batch subtitle → vtt (118.5063ms)
+✔ batch subtitle → ass (120.962ms)
+✔ batch database → json (6.8116ms)
+✔ batch database → csv (7.5978ms)
+✔ batch data → json (4.6513ms)
+✔ batch data → yaml (17.4568ms)
+✔ batch data → toml (9.7991ms)
+✔ batch data → xml (9.6155ms)
+✔ batch data → csv (7.2237ms)
+✔ batch data → txt (4.4372ms)
+✔ Office document conversion and mixed-batch error isolation (21474.973ms)
+✔ rejects unsupported destinations without claiming conversion (3.9334ms)
+✔ format lookup recognizes case and unsupported extensions (0.2974ms)
+ℹ tests 84
+ℹ suites 0
+ℹ pass 83
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 305720.2515
+
+✖ failing tests:
+
+test at tests\converter.test.mjs:119:5
+✖ batch image → tiff (193.8992ms)
+  AssertionError [ERR_ASSERTION]: image/tiff changed center color
+      at verifyConversion (file:///C:/Users/koshe/Desktop/Tech/Ai%20Envroment/Switchyard/tests/conversion-outcomes.mjs:12:85)
+      at async TestContext.<anonymous> (file:///C:/Users/koshe/Desktop/Tech/Ai%20Envroment/Switchyard/tests/converter.test.mjs:133:7)
+      at async Test.run (node:internal/test_runner/test:1113:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

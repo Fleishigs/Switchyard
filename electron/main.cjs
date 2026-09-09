@@ -7,6 +7,7 @@ const {
   shell,
   clipboard,
   session,
+  protocol,
 } = require("electron");
 const path = require("node:path");
 const fs = require("node:fs/promises");
@@ -125,7 +126,7 @@ app.whenReady().then(async () => {
       engines: { ...saved.settings?.engines },
     };
     jobs = Array.isArray(saved.jobs) ? saved.jobs.slice(0, 100) : [];
-    for (const j of jobs) for (const p of j.outputs || []) allowed.add(p);
+    for (const j of jobs) for (const p of [...(j.outputs || []), ...(j.inputs || [])]) allowed.add(p);
   } catch {}
   const engineRoot = app.isPackaged
     ? path.join(process.resourcesPath, "engines")
@@ -197,6 +198,15 @@ app.whenReady().then(async () => {
     return result.canceled ? [] : addFiles(result.filePaths);
   });
   handle("files:add", addFiles);
+  const { createMediaPreview } = await import('./media-preview.mjs');
+  const mediaPreview = createMediaPreview({ protocol, allowed, engines: settings.engines });
+  handle('files:media-preview', p => mediaPreview.preview(p));
+  handle('files:pdf-preview', async (p, number) => {
+    if (!allowed.has(p)) throw new Error('Choose this file first.');
+    const { pdfPreview } = await import('./pdf-preview.mjs');
+    return pdfPreview(p, number);
+  });
+  app.once('before-quit', () => mediaPreview.dispose());
   handle("files:preview", async (p) => {
     if (!allowed.has(p)) throw new Error("Choose this file first.");
     const sharp = (await import("sharp")).default;
@@ -242,6 +252,7 @@ app.whenReady().then(async () => {
       createdAt: Date.now(),
       folder: path.join(data(), "Outputs", id),
       outputs: [],
+      inputs: [...request.files],
       log: "",
       request,
     };

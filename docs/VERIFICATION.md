@@ -1,5 +1,7 @@
 # Switchyard 1.0.1 verification
 
+**Superseded for result correctness by the [1.0.2 outcome audit](OUTCOME-AUDIT.md).** The checks below record the original execution and UI verification; nonempty output files alone did not establish correct transformations.
+
 The release contains 111 registered tools, a Messages workspace, and 13 conversion families with 121 recognized input extensions. The family matrix contains 81 destination choices in total; that is not a claim that every possible input variant or file type is supported.
 
 ## Completed checks

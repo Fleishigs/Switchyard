@@ -1,0 +1,49 @@
+{
+  "passed": 4,
+  "failed": 0,
+  "results": [
+    {
+      "tool": "voice-transcribe",
+      "pass": true,
+      "assertion": "Transcription recognizes known speech; subtitle timing fits source duration",
+      "measurements": {
+        "recognizedExpectedSentence": true
+      },
+      "ms": 1661
+    },
+    {
+      "tool": "voice-vocals",
+      "pass": true,
+      "assertion": "Separated vocals retain intelligible speech and reduce an added accompaniment tone",
+      "measurements": {
+        "accompanimentRemainingRatio": 0.027889802589748464,
+        "speechRecognized": true,
+        "vocalPower": 0.010532572575387086,
+        "instrumentalPower": 0.0024801013905899083
+      },
+      "ms": 38725
+    },
+    {
+      "tool": "download-video",
+      "pass": true,
+      "assertion": "Downloaded source decodes to nonblank video and audible audio",
+      "measurements": {
+        "duration": 596.501,
+        "decodedFrame": true,
+        "audible": true
+      },
+      "ms": 85254
+    },
+    {
+      "tool": "download-audio",
+      "pass": true,
+      "assertion": "Downloaded MP3 has the same source duration and a non-silent waveform",
+      "measurements": {
+        "duration": 596.474208,
+        "audible": true
+      },
+      "ms": 20872
+    }
+  ],
+  "work": "C:\\Users\\koshe\\Desktop\\Tech\\Ai Envroment\\Switchyard\\.runtime-engine-outcomes-1788962256672"
+}

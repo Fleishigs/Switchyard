@@ -91,7 +91,8 @@ async function convertOne(file, info, target, folder, context, command) {
           limitInputPixels: 100e6,
         })
           .rotate()
-          .toFormat(target === "jpg" ? "jpeg" : target)
+          .toFormat(target === "jpg" ? "jpeg" : target,
+            target === "tiff" ? { compression: "lzw" } : {})
           .toFile(out);
         return [out];
       } catch (e) {

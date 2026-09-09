@@ -1,0 +1,28 @@
+{
+  "inputWidth": 2640,
+  "inputHeight": 1980,
+  "inputUnchanged": true,
+  "runs": [
+    {
+      "oldMs": 2950,
+      "newMs": 744,
+      "oldBytes": 2688728,
+      "newBytes": 9345104
+    },
+    {
+      "oldMs": 2921,
+      "newMs": 682,
+      "oldBytes": 2688728,
+      "newBytes": 9345104
+    },
+    {
+      "oldMs": 3118,
+      "newMs": 894,
+      "oldBytes": 2688728,
+      "newBytes": 9345104
+    }
+  ],
+  "medianOldMs": 2950,
+  "medianNewMs": 744,
+  "notes": "Same local photo, three interleaved trials. This measures processing, not file picking or UI latency. New PNGs preserve full color instead of palette quantization; larger files are expected. Photo content and paths are not included in this report."
+}

@@ -41,6 +41,11 @@ import "./style.css";
 import CropPreview from "./CropPreview.jsx";
 import MessagesView from "./MessagesView.jsx";
 import BatchConverter from "./BatchConverter.jsx";
+import ImageComparison from "./ImageComparison.jsx";
+import { MediaResults } from './MediaTimeline.jsx';
+import { PdfResults } from './DocumentPreview.jsx';
+import VisualWorkspace from './VisualWorkspace.jsx';
+import ImageResults from './ImageResults.jsx';
 const api = window.switchyard;
 const icons = {
   Images: Image,
@@ -463,6 +468,11 @@ function App() {
                         )}
                       </div>
                       {j.error && <p className="job-error">{j.error}</p>}
+                      {j.startedAt && j.finishedAt && <p className="job-duration">Processing time: {((j.finishedAt-j.startedAt)/1000).toFixed(2)} seconds</p>}
+                      {j.status === 'done' && <ImageComparison job={j} api={api} />}
+                      {j.status === 'done' && <MediaResults job={j} api={api} />}
+                      {j.status === 'done' && <PdfResults job={j} api={api} />}
+                      {j.status === 'done' && <ImageResults job={j} api={api} />}
                       {j.text !== undefined && (
                         <div className="text-result">
                           <pre>{j.text.slice(0, 10000)}</pre>
@@ -840,6 +850,7 @@ function App() {
               >
                 <X size={16} />
               </button>
+              {files.length > 1 && <div className="file-order"><button aria-label={'Move up ' + f.name} disabled={i === 0} onClick={() => setFiles(prev => { const next = [...prev]; [next[i-1], next[i]] = [next[i], next[i-1]]; return next; })}>↑</button><button aria-label={'Move down ' + f.name} disabled={i === files.length-1} onClick={() => setFiles(prev => { const next = [...prev]; [next[i+1], next[i]] = [next[i], next[i+1]]; return next; })}>↓</button></div>}
             </div>
           ))}
         </div>
@@ -920,6 +931,7 @@ function App() {
               </div>
             )}
             <div className="dialog-body">
+              <VisualWorkspace key={selected.id} files={files} tool={selected} options={options} onChange={setOptions} api={api} />
               {preview && selected.id === "image-crop" ? (
                 <CropPreview
                   preview={preview}
@@ -967,7 +979,7 @@ function App() {
                 {selected.options.map((o) => (
                   <label key={o.key}>
                     {o.label}
-                    {o.type === "select" ? (
+                    {selected.id === 'text-diff' && o.key === 'other' ? <textarea value={options[o.key] ?? ''} onChange={e => setOptions({...options, [o.key]:e.target.value})} rows={6} spellCheck={false} /> : o.type === "select" ? (
                       <select
                         value={options[o.key]}
                         onChange={(e) =>

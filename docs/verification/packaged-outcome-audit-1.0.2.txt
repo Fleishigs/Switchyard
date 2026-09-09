@@ -1,0 +1,107 @@
+PASS image-enhance — Expands a low-contrast image, preserves dimensions and changes pixels
+PASS image-resize — Fits requested bounds without changing aspect ratio
+PASS image-crop — Extracts the requested source coordinates exactly
+PASS image-jpeg — Decodes to the intended format and preserves image content
+PASS image-png — Decodes to the intended format and preserves image content
+PASS image-webp — Decodes to the intended format and preserves image content
+PASS image-avif — Decodes to the intended format and preserves image content
+PASS image-rotate — 90 degree clockwise pixel mapping
+PASS image-flip — Vertical reflection pixel mapping
+PASS image-mirror — Horizontal reflection pixel mapping
+PASS image-grayscale — Every decoded pixel has equal RGB channels
+PASS image-blur — Reduces measured edge variation
+PASS image-sharpen — Increases edge contrast on a soft input
+PASS image-brightness — Lightening and darkening change channel means in opposite directions
+PASS image-saturation — Zero saturation removes chroma
+PASS image-negative — Inverts RGB while preserving alpha
+PASS image-trim — Removes only the uniform border
+PASS image-thumbnail — Produces the selected square dimensions
+PASS image-border — Adds the specified color and preserves inner pixels
+PASS image-metadata — Reports real dimensions, codec and EXIF
+PASS image-strip — Removes actual embedded EXIF without losing dimensions
+PASS image-pixelate — Creates constant-color blocks, preserving dimensions
+PASS image-tint — Requested red tint dominates blue/green
+PASS image-threshold — Produces both black and white pixels and no gray
+PASS image-rounded — Corners become transparent; center remains opaque
+PASS image-contact — Places multiple distinct inputs in correct cells
+PASS image-watermark — Changes the bottom overlay while preserving the top
+PASS image-palette — Identifies a solid red source as 100 percent red
+PASS text-upper — Output matches independently specified expected content
+PASS text-lower — Output matches independently specified expected content
+PASS text-title — Output matches independently specified expected content
+PASS text-slug — Output matches independently specified expected content
+PASS text-sort — Output matches independently specified expected content
+PASS text-unique — Output matches independently specified expected content
+PASS text-trim — Output matches independently specified expected content
+PASS text-json — Output matches independently specified expected content
+PASS text-json-min — Output matches independently specified expected content
+PASS text-base64 — Output matches independently specified expected content
+PASS text-unbase64 — Output matches independently specified expected content
+PASS text-url — Output matches independently specified expected content
+PASS text-unurl — Output matches independently specified expected content
+PASS text-sha256 — Output matches independently specified expected content
+PASS text-html-escape — Output matches independently specified expected content
+PASS text-html-unescape — Output matches independently specified expected content
+PASS text-number-lines — Output matches independently specified expected content
+PASS text-replace — Output matches independently specified expected content
+PASS text-stats — Counts Unicode characters, words and lines
+PASS text-uuid — Requested count, valid v4 UUID bits and no duplicates
+PASS text-password — Requested length and distinct generated samples
+PASS text-qr — Independent QR reader decodes the original Unicode payload
+PASS text-csv-json — Preserves quoted commas, newlines, quotes and Unicode
+PASS text-json-csv — CSV round trip preserves field values and quoting
+PASS text-diff — Marks the exact removed and added lines
+PASS text-jwt — Decodes known claims and reports unverified signature
+PASS unit-length — Returns a known reference conversion
+PASS unit-mass — Returns a known reference conversion
+PASS unit-temperature — Returns a known reference conversion
+PASS unit-storage — Returns a known reference conversion
+PASS date-distance — Returns a known reference conversion
+PASS number-base — Preserves large integers without floating-point rounding
+PASS color-inspect — Known white and red RGB/HSL/contrast reference values
+PASS pdf-merge — Combines two documents in order with text intact
+PASS pdf-extract — Extracts exactly the requested pages
+PASS pdf-reverse — Reverses readable page content order
+PASS pdf-rotate — Rotates every page while preserving content
+PASS pdf-images — Embeds every source image at the correct page dimensions
+PASS pdf-metadata — Reads actual title, author and page count
+PASS pdf-split — Creates one readable PDF per original page
+PASS pdf-delete — Removes only the selected page
+PASS pdf-number — Adds the correct number to each page and preserves source text
+PASS pdf-watermark — Watermark text appears on every page
+PASS pdf-text — Extracts actual embedded content from every page
+PASS pdf-render — Renders all pages with scaled dimensions and visible text pixels
+PASS pdf-edit-info — Saves requested metadata without losing page content
+PASS text-pdf — Long text paginates and preserves its final paragraph
+PASS audio-wav — Actual audio codec, duration and audible waveform survive conversion
+PASS audio-mp3 — Actual audio codec, duration and audible waveform survive conversion
+PASS audio-flac — Actual audio codec, duration and audible waveform survive conversion
+PASS audio-aac — Actual audio codec, duration and audible waveform survive conversion
+PASS audio-opus — Actual audio codec, duration and audible waveform survive conversion
+PASS audio-trim — Requested nonzero start and duration select the correct envelope
+PASS audio-normalize — Measured integrated loudness reaches the advertised target
+PASS audio-volume — Gain changes decoded RMS by the specified decibels
+PASS audio-fade-in — Beginning attenuates while the later section stays unchanged
+PASS audio-fade-out — End attenuates while the beginning stays unchanged
+PASS audio-reverse — Decoded samples appear in reverse temporal order
+PASS audio-speed — Double speed halves duration while preserving pitch
+PASS audio-mono — Creates one channel with the mixed source signal
+PASS audio-denoise — Preserves the dominant tone and attenuates quiet noise
+PASS audio-highpass — Attenuates low frequencies more than high frequencies
+PASS audio-lowpass — Attenuates high frequencies while retaining low frequencies
+PASS audio-silence — Removes leading silence and keeps audible material
+PASS audio-inspect — Reports source channel count, sample rate and duration
+PASS video-mp4 — Decodes video frames with correct codec, dimensions, duration and stream selection
+PASS video-webm — Decodes video frames with correct codec, dimensions, duration and stream selection
+PASS video-compress — Decodes video frames with correct codec, dimensions, duration and stream selection
+PASS video-resize — Decodes video frames with correct codec, dimensions, duration and stream selection
+PASS video-trim — Decodes video frames with correct codec, dimensions, duration and stream selection
+PASS video-speed — Decodes video frames with correct codec, dimensions, duration and stream selection
+PASS video-mute — Decodes video frames with correct codec, dimensions, duration and stream selection
+PASS video-extract — Extracted audio retains pitch and duration without video
+PASS video-gif — Animated GIF has multiple decoded frames and expected duration
+PASS video-frame — Extracted PNG contains the source frame at original dimensions
+PASS video-rotate — Clockwise rotation maps asymmetric source pixels correctly
+PASS video-mirror — Horizontally mirrors decoded frame coordinates
+PASS image-ocr — Recognizes a known sentence and digits from image pixels
+{"passed":106,"failed":0,"pending":["download-video","download-audio","voice-transcribe","voice-vocals","batch-convert"]}

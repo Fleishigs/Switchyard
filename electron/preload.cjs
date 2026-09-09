@@ -13,6 +13,8 @@ contextBridge.exposeInMainWorld("switchyard", {
   reveal: invoke("output:reveal"),
   exportFile: invoke("output:export"),
   preview: invoke("files:preview"),
+  mediaPreview: invoke("files:media-preview"),
+  pdfPreview: invoke("files:pdf-preview"),
   saveSettings: invoke("settings:save"),
   messages: {
     initialize: async () => { await ipcRenderer.invoke('recall:open'); return ipcRenderer.invoke('recall:get-initial'); },

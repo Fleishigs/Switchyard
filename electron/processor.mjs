@@ -101,7 +101,9 @@ function textOperation(id, t, o) {
     case "text-lower":
       return t.toLowerCase();
     case "text-title":
-      return t.replace(/\b\p{L}/gu, (c) => c.toUpperCase());
+      return t.replace(/\p{L}[\p{L}\p{M}\p{N}'’]*/gu, (word) =>
+        word.replace(/^\p{L}/u, (letter) => letter.toUpperCase()),
+      );
     case "text-slug":
       return t
         .normalize("NFKD")
@@ -215,7 +217,9 @@ export async function processTool(
       }
       switch (toolId) {
         case "image-enhance":
-          s = s.normalise().sharpen({ sigma: 1 });
+          s = s.normalise({ lower: 1, upper: 99 }).sharpen({
+            sigma: 0.8, m1: 0, m2: 1.5, x1: 3, y2: 8, y3: 8,
+          });
           break;
         case "image-resize":
           s = s.resize({
@@ -281,7 +285,11 @@ export async function processTool(
       if (["image-jpeg", "image-webp", "image-avif"].includes(toolId))
         ext = toolId.slice(6);
       const p = out(`${i + 1}-${path.parse(file).name}.${ext}`);
-      await s.toFormat(ext, { quality: Math.round(o.quality ?? 85) }).toFile(p);
+      // PNG's `quality` option enables palette quantization, even for crop/flip.
+      // Keep edits lossless; apply quality only to explicitly lossy export tools.
+      await s.toFormat(ext, ext === "png"
+        ? { compressionLevel: 3 }
+        : { quality: Math.round(o.quality ?? 85) }).toFile(p);
       outputs.push(p);
     }
   } else if (tool.kind === "pdf") {
@@ -517,7 +525,19 @@ export async function processTool(
           args.push("-ss", String(o.start), "-t", String(o.duration));
           break;
         case "audio-normalize":
-          filters.push("loudnorm=I=-16:TP=-1.5:LRA=11");
+          {
+            let analysis = "";
+            await command(ffmpeg, ["-nostdin", "-hide_banner", "-i", file,
+              "-vn", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json",
+              "-f", "null", "-"], { signal, onLog: (line) => { analysis += line; onLog?.(line); } });
+            const match = analysis.match(/\{\s*"input_i"[\s\S]*?\}/);
+            if (!match) throw new Error("Could not measure input loudness.");
+            const measured = JSON.parse(match[0]);
+            const fields = ["input_i", "input_tp", "input_lra", "input_thresh", "target_offset"];
+            filters.push(fields.every(key => Number.isFinite(Number(measured[key])))
+              ? `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${measured.input_i}:measured_TP=${measured.input_tp}:measured_LRA=${measured.input_lra}:measured_thresh=${measured.input_thresh}:offset=${measured.target_offset}:linear=true`
+              : "anull");
+          }
           break;
         case "audio-volume":
           filters.push(`volume=${o.gain}dB`);
@@ -548,7 +568,7 @@ export async function processTool(
           break;
         case "audio-silence":
           filters.push(
-            "silenceremove=start_periods=1:start_duration=0.1:start_threshold=-45dB",
+            "silenceremove=start_periods=1:start_duration=0.01:start_threshold=-45dB",
           );
           break;
         case "video-webm":

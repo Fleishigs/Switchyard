@@ -1,0 +1,19 @@
+(node:17312) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ batch image → png (4989.4842ms)
+✔ batch image → jpg (332.7208ms)
+✔ batch image → webp (298.1558ms)
+✔ batch image → avif (295.2385ms)
+✔ batch image → tiff (235.12ms)
+✔ batch image → gif (264.4368ms)
+✔ batch image → bmp (337.294ms)
+✔ batch image → ico (340.7906ms)
+✔ batch image → tga (415.4991ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8327.2479

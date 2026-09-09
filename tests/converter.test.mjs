@@ -8,6 +8,7 @@ import sharp from "sharp";
 import { PDFDocument } from "pdf-lib";
 import { processTool, command } from "../electron/processor.mjs";
 import { families, formatInfo } from "../shared/formats.mjs";
+import { verifyConversion } from './conversion-outcomes.mjs';
 let root;
 const inputs = {};
 const engines = {
@@ -129,6 +130,7 @@ for (const [family, config] of Object.entries(families))
       assert.equal(result.failures, 0, result.text);
       assert.ok(result.outputs.length >= 2);
       for (const p of result.outputs) assert.ok((await fs.stat(p)).size > 0);
+      await verifyConversion({family,target,input:file,outputs:result.outputs,engines,command,processTool});
     });
 test("Office document conversion and mixed-batch error isolation", async () => {
   const unknown = path.join(root, "source.unknown");

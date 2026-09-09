@@ -57,6 +57,7 @@ const MIME_BY_EXT = {
 
 // Register the custom scheme used to serve attachments to the renderer.
 protocol.registerSchemesAsPrivileged([
+  { scheme: "sy-media", privileges: { standard: true, secure: true, supportFetchAPI: true, stream: true } },
   {
     scheme: "att",
     privileges: {

@@ -1,7 +1,7 @@
 {
   "name": "switchyard",
   "productName": "Switchyard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A local creative toolbox for Windows",
   "author": "Switchyard Contributors",
   "license": "MIT",
@@ -180,6 +180,7 @@
     "electron": "^44.3.0",
     "electron-builder": "^26.15.3",
     "fflate": "^0.8.3",
+    "jsqr": "^1.4.0",
     "playwright": "^1.63.0",
     "prettier": "^3.9.6",
     "vite": "^8.2.2"

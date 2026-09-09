@@ -1,0 +1,18 @@
+Selected Cancel / Button / ControlType.Pane / 2
+Native dialog verified: Open Fig backup
+Selected Open / Button / ControlType.Pane / 1
+Native dialog verified: Open Fig backup
+Selected Open / Button / ControlType.Pane / 1
+Native dialog verified: Open Fig backup
+Selected Open / Button / ControlType.Pane / 1
+Native dialog verified: Import contacts (.vcf)
+Selected Save / Button / ControlType.Pane / 1
+Native dialog verified: Export XML
+[
+  'Open Fig backup displays actual Windows picker; Cancel works',
+  'Welcome button imports using actual Windows picker',
+  'Open Fig backup imports a ZIP using the actual Windows picker',
+  'Native contact file selection',
+  'Native Save XML dialog writes correct file',
+  'Full application restart restores messages and contact names'
+]

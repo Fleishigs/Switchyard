@@ -1,0 +1,1019 @@
+{
+  "version": "1.0.2",
+  "registeredTools": 111,
+  "toolsWithPassingOutcomeChecks": 111,
+  "conversionRoutes": 81,
+  "executor": "C:\\Users\\koshe\\AppData\\Local\\Programs\\Switchyard\\Switchyard.exe",
+  "results": [
+    {
+      "tool": "image-enhance",
+      "pass": true,
+      "assertion": "Expands a low-contrast image, preserves dimensions and changes pixels",
+      "ms": 145
+    },
+    {
+      "tool": "image-resize",
+      "pass": true,
+      "assertion": "Fits requested bounds without changing aspect ratio",
+      "ms": 90
+    },
+    {
+      "tool": "image-crop",
+      "pass": true,
+      "assertion": "Extracts the requested source coordinates exactly",
+      "ms": 41
+    },
+    {
+      "tool": "image-jpeg",
+      "pass": true,
+      "assertion": "Decodes to the intended format and preserves image content",
+      "ms": 96
+    },
+    {
+      "tool": "image-png",
+      "pass": true,
+      "assertion": "Decodes to the intended format and preserves image content",
+      "ms": 72
+    },
+    {
+      "tool": "image-webp",
+      "pass": true,
+      "assertion": "Decodes to the intended format and preserves image content",
+      "ms": 78
+    },
+    {
+      "tool": "image-avif",
+      "pass": true,
+      "assertion": "Decodes to the intended format and preserves image content",
+      "ms": 203
+    },
+    {
+      "tool": "image-rotate",
+      "pass": true,
+      "assertion": "90 degree clockwise pixel mapping",
+      "ms": 62
+    },
+    {
+      "tool": "image-flip",
+      "pass": true,
+      "assertion": "Vertical reflection pixel mapping",
+      "ms": 70
+    },
+    {
+      "tool": "image-mirror",
+      "pass": true,
+      "assertion": "Horizontal reflection pixel mapping",
+      "ms": 73
+    },
+    {
+      "tool": "image-grayscale",
+      "pass": true,
+      "assertion": "Every decoded pixel has equal RGB channels",
+      "ms": 79
+    },
+    {
+      "tool": "image-blur",
+      "pass": true,
+      "assertion": "Reduces measured edge variation",
+      "ms": 110
+    },
+    {
+      "tool": "image-sharpen",
+      "pass": true,
+      "assertion": "Increases edge contrast on a soft input",
+      "ms": 88
+    },
+    {
+      "tool": "image-brightness",
+      "pass": true,
+      "assertion": "Lightening and darkening change channel means in opposite directions",
+      "ms": 190
+    },
+    {
+      "tool": "image-saturation",
+      "pass": true,
+      "assertion": "Zero saturation removes chroma",
+      "ms": 153
+    },
+    {
+      "tool": "image-negative",
+      "pass": true,
+      "assertion": "Inverts RGB while preserving alpha",
+      "ms": 76
+    },
+    {
+      "tool": "image-trim",
+      "pass": true,
+      "assertion": "Removes only the uniform border",
+      "ms": 79
+    },
+    {
+      "tool": "image-thumbnail",
+      "pass": true,
+      "assertion": "Produces the selected square dimensions",
+      "ms": 80
+    },
+    {
+      "tool": "image-border",
+      "pass": true,
+      "assertion": "Adds the specified color and preserves inner pixels",
+      "ms": 88
+    },
+    {
+      "tool": "image-metadata",
+      "pass": true,
+      "assertion": "Reports real dimensions, codec and EXIF",
+      "ms": 69
+    },
+    {
+      "tool": "image-strip",
+      "pass": true,
+      "assertion": "Removes actual embedded EXIF without losing dimensions",
+      "ms": 81
+    },
+    {
+      "tool": "audio-wav",
+      "pass": true,
+      "assertion": "Actual audio codec, duration and audible waveform survive conversion",
+      "ms": 384
+    },
+    {
+      "tool": "audio-mp3",
+      "pass": true,
+      "assertion": "Actual audio codec, duration and audible waveform survive conversion",
+      "ms": 429
+    },
+    {
+      "tool": "audio-flac",
+      "pass": true,
+      "assertion": "Actual audio codec, duration and audible waveform survive conversion",
+      "ms": 337
+    },
+    {
+      "tool": "audio-aac",
+      "pass": true,
+      "assertion": "Actual audio codec, duration and audible waveform survive conversion",
+      "ms": 451
+    },
+    {
+      "tool": "audio-opus",
+      "pass": true,
+      "assertion": "Actual audio codec, duration and audible waveform survive conversion",
+      "ms": 388
+    },
+    {
+      "tool": "audio-trim",
+      "pass": true,
+      "assertion": "Requested nonzero start and duration select the correct envelope",
+      "ms": 256
+    },
+    {
+      "tool": "audio-normalize",
+      "pass": true,
+      "assertion": "Measured integrated loudness reaches the advertised target",
+      "ms": 721
+    },
+    {
+      "tool": "audio-volume",
+      "pass": true,
+      "assertion": "Gain changes decoded RMS by the specified decibels",
+      "ms": 318
+    },
+    {
+      "tool": "audio-fade-in",
+      "pass": true,
+      "assertion": "Beginning attenuates while the later section stays unchanged",
+      "ms": 318
+    },
+    {
+      "tool": "audio-fade-out",
+      "pass": true,
+      "assertion": "End attenuates while the beginning stays unchanged",
+      "ms": 289
+    },
+    {
+      "tool": "audio-reverse",
+      "pass": true,
+      "assertion": "Decoded samples appear in reverse temporal order",
+      "ms": 282
+    },
+    {
+      "tool": "audio-speed",
+      "pass": true,
+      "assertion": "Double speed halves duration while preserving pitch",
+      "ms": 272
+    },
+    {
+      "tool": "audio-mono",
+      "pass": true,
+      "assertion": "Creates one channel with the mixed source signal",
+      "ms": 375
+    },
+    {
+      "tool": "audio-denoise",
+      "pass": true,
+      "assertion": "Preserves the dominant tone and attenuates quiet noise",
+      "ms": 745
+    },
+    {
+      "tool": "audio-highpass",
+      "pass": true,
+      "assertion": "Attenuates low frequencies more than high frequencies",
+      "ms": 251
+    },
+    {
+      "tool": "audio-lowpass",
+      "pass": true,
+      "assertion": "Attenuates high frequencies while retaining low frequencies",
+      "ms": 291
+    },
+    {
+      "tool": "audio-silence",
+      "pass": true,
+      "assertion": "Removes leading silence and keeps audible material",
+      "ms": 288
+    },
+    {
+      "tool": "audio-inspect",
+      "pass": true,
+      "assertion": "Reports source channel count, sample rate and duration",
+      "ms": 218
+    },
+    {
+      "tool": "video-mp4",
+      "pass": true,
+      "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
+      "ms": 560
+    },
+    {
+      "tool": "video-webm",
+      "pass": true,
+      "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
+      "ms": 687
+    },
+    {
+      "tool": "video-trim",
+      "pass": true,
+      "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
+      "ms": 448
+    },
+    {
+      "tool": "video-mute",
+      "pass": true,
+      "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
+      "ms": 323
+    },
+    {
+      "tool": "video-extract",
+      "pass": true,
+      "assertion": "Extracted audio retains pitch and duration without video",
+      "ms": 376
+    },
+    {
+      "tool": "video-resize",
+      "pass": true,
+      "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
+      "ms": 454
+    },
+    {
+      "tool": "video-compress",
+      "pass": true,
+      "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
+      "ms": 520
+    },
+    {
+      "tool": "video-gif",
+      "pass": true,
+      "assertion": "Animated GIF has multiple decoded frames and expected duration",
+      "ms": 170
+    },
+    {
+      "tool": "video-frame",
+      "pass": true,
+      "assertion": "Extracted PNG contains the source frame at original dimensions",
+      "ms": 178
+    },
+    {
+      "tool": "video-rotate",
+      "pass": true,
+      "assertion": "Clockwise rotation maps asymmetric source pixels correctly",
+      "ms": 449
+    },
+    {
+      "tool": "video-mirror",
+      "pass": true,
+      "assertion": "Horizontally mirrors decoded frame coordinates",
+      "ms": 368
+    },
+    {
+      "tool": "video-speed",
+      "pass": true,
+      "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
+      "ms": 435
+    },
+    {
+      "tool": "pdf-merge",
+      "pass": true,
+      "assertion": "Combines two documents in order with text intact",
+      "ms": 467
+    },
+    {
+      "tool": "pdf-extract",
+      "pass": true,
+      "assertion": "Extracts exactly the requested pages",
+      "ms": 37
+    },
+    {
+      "tool": "pdf-rotate",
+      "pass": true,
+      "assertion": "Rotates every page while preserving content",
+      "ms": 36
+    },
+    {
+      "tool": "pdf-reverse",
+      "pass": true,
+      "assertion": "Reverses readable page content order",
+      "ms": 34
+    },
+    {
+      "tool": "pdf-metadata",
+      "pass": true,
+      "assertion": "Reads actual title, author and page count",
+      "ms": 18
+    },
+    {
+      "tool": "pdf-images",
+      "pass": true,
+      "assertion": "Embeds every source image at the correct page dimensions",
+      "ms": 546
+    },
+    {
+      "tool": "text-stats",
+      "pass": true,
+      "assertion": "Counts Unicode characters, words and lines",
+      "ms": 22
+    },
+    {
+      "tool": "text-upper",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 18
+    },
+    {
+      "tool": "text-lower",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 32
+    },
+    {
+      "tool": "text-title",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 17
+    },
+    {
+      "tool": "text-slug",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 29
+    },
+    {
+      "tool": "text-sort",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 93
+    },
+    {
+      "tool": "text-unique",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 33
+    },
+    {
+      "tool": "text-trim",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 24
+    },
+    {
+      "tool": "text-json",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 32
+    },
+    {
+      "tool": "text-json-min",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 35
+    },
+    {
+      "tool": "text-base64",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 40
+    },
+    {
+      "tool": "text-unbase64",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 37
+    },
+    {
+      "tool": "text-url",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 42
+    },
+    {
+      "tool": "text-unurl",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 32
+    },
+    {
+      "tool": "text-sha256",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 27
+    },
+    {
+      "tool": "text-uuid",
+      "pass": true,
+      "assertion": "Requested count, valid v4 UUID bits and no duplicates",
+      "ms": 33
+    },
+    {
+      "tool": "text-password",
+      "pass": true,
+      "assertion": "Requested length and distinct generated samples",
+      "ms": 143
+    },
+    {
+      "tool": "text-qr",
+      "pass": true,
+      "assertion": "Independent QR reader decodes the original Unicode payload",
+      "ms": 362
+    },
+    {
+      "tool": "download-video",
+      "pass": true,
+      "assertion": "Downloaded source decodes to nonblank video and audible audio",
+      "measurements": {
+        "duration": 596.501,
+        "decodedFrame": true,
+        "audible": true
+      },
+      "ms": 85254
+    },
+    {
+      "tool": "download-audio",
+      "pass": true,
+      "assertion": "Downloaded MP3 has the same source duration and a non-silent waveform",
+      "measurements": {
+        "duration": 596.474208,
+        "audible": true
+      },
+      "ms": 20872
+    },
+    {
+      "tool": "voice-transcribe",
+      "pass": true,
+      "assertion": "Transcription recognizes known speech; subtitle timing fits source duration",
+      "measurements": {
+        "recognizedExpectedSentence": true
+      },
+      "ms": 1661
+    },
+    {
+      "tool": "voice-vocals",
+      "pass": true,
+      "assertion": "Separated vocals retain intelligible speech and reduce an added accompaniment tone",
+      "measurements": {
+        "accompanimentRemainingRatio": 0.027889802589748464,
+        "speechRecognized": true,
+        "vocalPower": 0.010532572575387086,
+        "instrumentalPower": 0.0024801013905899083
+      },
+      "ms": 38725
+    },
+    {
+      "tool": "batch-convert",
+      "pass": true,
+      "assertion": "All 81 family/destination routes decode with preserved content"
+    },
+    {
+      "tool": "image-pixelate",
+      "pass": true,
+      "assertion": "Creates constant-color blocks, preserving dimensions",
+      "ms": 79
+    },
+    {
+      "tool": "image-tint",
+      "pass": true,
+      "assertion": "Requested red tint dominates blue/green",
+      "ms": 105
+    },
+    {
+      "tool": "image-threshold",
+      "pass": true,
+      "assertion": "Produces both black and white pixels and no gray",
+      "ms": 99
+    },
+    {
+      "tool": "image-rounded",
+      "pass": true,
+      "assertion": "Corners become transparent; center remains opaque",
+      "ms": 120
+    },
+    {
+      "tool": "image-contact",
+      "pass": true,
+      "assertion": "Places multiple distinct inputs in correct cells",
+      "ms": 94
+    },
+    {
+      "tool": "image-watermark",
+      "pass": true,
+      "assertion": "Changes the bottom overlay while preserving the top",
+      "ms": 134
+    },
+    {
+      "tool": "image-palette",
+      "pass": true,
+      "assertion": "Identifies a solid red source as 100 percent red",
+      "ms": 68
+    },
+    {
+      "tool": "pdf-split",
+      "pass": true,
+      "assertion": "Creates one readable PDF per original page",
+      "ms": 96
+    },
+    {
+      "tool": "pdf-delete",
+      "pass": true,
+      "assertion": "Removes only the selected page",
+      "ms": 36
+    },
+    {
+      "tool": "pdf-number",
+      "pass": true,
+      "assertion": "Adds the correct number to each page and preserves source text",
+      "ms": 89
+    },
+    {
+      "tool": "pdf-watermark",
+      "pass": true,
+      "assertion": "Watermark text appears on every page",
+      "ms": 51
+    },
+    {
+      "tool": "pdf-text",
+      "pass": true,
+      "assertion": "Extracts actual embedded content from every page",
+      "ms": 98
+    },
+    {
+      "tool": "pdf-render",
+      "pass": true,
+      "assertion": "Renders all pages with scaled dimensions and visible text pixels",
+      "ms": 168
+    },
+    {
+      "tool": "pdf-edit-info",
+      "pass": true,
+      "assertion": "Saves requested metadata without losing page content",
+      "ms": 80
+    },
+    {
+      "tool": "text-csv-json",
+      "pass": true,
+      "assertion": "Preserves quoted commas, newlines, quotes and Unicode",
+      "ms": 13
+    },
+    {
+      "tool": "text-json-csv",
+      "pass": true,
+      "assertion": "CSV round trip preserves field values and quoting",
+      "ms": 16
+    },
+    {
+      "tool": "text-html-escape",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 45
+    },
+    {
+      "tool": "text-html-unescape",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 51
+    },
+    {
+      "tool": "text-number-lines",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 30
+    },
+    {
+      "tool": "text-replace",
+      "pass": true,
+      "assertion": "Output matches independently specified expected content",
+      "ms": 38
+    },
+    {
+      "tool": "text-diff",
+      "pass": true,
+      "assertion": "Marks the exact removed and added lines",
+      "ms": 20
+    },
+    {
+      "tool": "text-jwt",
+      "pass": true,
+      "assertion": "Decodes known claims and reports unverified signature",
+      "ms": 14
+    },
+    {
+      "tool": "text-pdf",
+      "pass": true,
+      "assertion": "Long text paginates and preserves its final paragraph",
+      "ms": 114
+    },
+    {
+      "tool": "unit-length",
+      "pass": true,
+      "assertion": "Returns a known reference conversion",
+      "ms": 26
+    },
+    {
+      "tool": "unit-mass",
+      "pass": true,
+      "assertion": "Returns a known reference conversion",
+      "ms": 22
+    },
+    {
+      "tool": "unit-temperature",
+      "pass": true,
+      "assertion": "Returns a known reference conversion",
+      "ms": 24
+    },
+    {
+      "tool": "unit-storage",
+      "pass": true,
+      "assertion": "Returns a known reference conversion",
+      "ms": 25
+    },
+    {
+      "tool": "date-distance",
+      "pass": true,
+      "assertion": "Returns a known reference conversion",
+      "ms": 33
+    },
+    {
+      "tool": "number-base",
+      "pass": true,
+      "assertion": "Preserves large integers without floating-point rounding",
+      "ms": 20
+    },
+    {
+      "tool": "color-inspect",
+      "pass": true,
+      "assertion": "Known white and red RGB/HSL/contrast reference values",
+      "ms": 56
+    },
+    {
+      "tool": "image-ocr",
+      "pass": true,
+      "assertion": "Recognizes a known sentence and digits from image pixels",
+      "ms": 1015
+    }
+  ],
+  "conversions": [
+    {
+      "route": "image/png",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "image/jpg",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "image/webp",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "image/avif",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "image/tiff",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "image/gif",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "image/bmp",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "image/ico",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "image/tga",
+      "evidence": "converter-image-regression.txt"
+    },
+    {
+      "route": "audio/wav",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/mp3",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/flac",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/m4a",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/aac",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/ogg",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/opus",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/aiff",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/wma",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "audio/ac3",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/mp4",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/mkv",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/webm",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/avi",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/mov",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/mpeg",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/ts",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/gif",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/wav",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/mp3",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/flac",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/m4a",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "video/opus",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/pdf",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/docx",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/odt",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/rtf",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/html",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/txt",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/md",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/rst",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/epub",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/fb2",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/tex",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "document/org",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "spreadsheet/xlsx",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "spreadsheet/ods",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "spreadsheet/csv",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "spreadsheet/tsv",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "spreadsheet/pdf",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "spreadsheet/html",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "presentation/pptx",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "presentation/ppt",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "presentation/odp",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "presentation/pdf",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "pdf/png",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "pdf/jpg",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "pdf/txt",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "pdf/docx",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "pdf/odt",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "archive/zip",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "archive/7z",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "archive/tar",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "font/woff",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "font/woff2",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "font/sfnt",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "mesh/stl",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "mesh/obj",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "mesh/ply",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "mesh/off",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "mesh/glb",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "subtitle/srt",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "subtitle/vtt",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "subtitle/ass",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "database/json",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "database/csv",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "data/json",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "data/yaml",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "data/toml",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "data/xml",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "data/csv",
+      "evidence": "converter-outcomes.txt"
+    },
+    {
+      "route": "data/txt",
+      "evidence": "converter-outcomes.txt"
+    }
+  ],
+  "limits": "Representative fixtures and tested settings. Subjective photo quality, arbitrary file variants and every hardware setup are not guaranteed."
+}

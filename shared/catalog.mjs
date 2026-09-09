@@ -32,7 +32,7 @@ add("Images", "image", [
   [
     "image-enhance",
     "Enhance image",
-    "Balance contrast and sharpen fine detail. Conventional enhancement, without invented AI detail.",
+    "Improve contrast and edge definition. Local photo adjustment, not AI deblurring or upscaling.",
   ],
   [
     "image-resize",

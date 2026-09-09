@@ -1,0 +1,5 @@
+[
+  'Every category, Messages, Queue, Engines, Home and voice launcher reachable at 900x650',
+  'Every category, Messages, Queue, Engines, Home and voice launcher reachable at 1100x760',
+  'Every category, Messages, Queue, Engines, Home and voice launcher reachable at 1440x960'
+]
