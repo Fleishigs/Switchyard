@@ -1,15 +1,19 @@
 {
   "passed": true,
-  "resources": "C:\\Users\\koshe\\AppData\\Local\\Programs\\Switchyard\\resources",
+  "resources": "C:\\Users\\koshe\\Desktop\\Tech\\Ai Envroment\\Switchyard\\release-final\\win-unpacked\\resources",
   "files": [
     {
       "file": "package.json",
       "productionFieldsMatch": true,
-      "packagedSha256": "7bab61597e57e34f9067215171cbc8ce7921c68fe143eb18999698371c85d7ee"
+      "packagedSha256": "d45bae66a7b03668ef2dc393b7adf453b0d88053bf0b32f6e78ce06acbf2bc99"
+    },
+    {
+      "file": "electron/upscaler.mjs",
+      "sha256": "80cfbdeff10c3c994cb90b2df9c19815b10c466c8833af77dffe54531d59b852"
     },
     {
       "file": "electron/media-preview.mjs",
-      "sha256": "9e905ae9a065abecef6afccb1cc13d730de999970130b408dbab64fcfe9f185c"
+      "sha256": "ccb97d1d659fecd50defaad99193108f0eef92a1bfe56514888ecb600e80f3c1"
     },
     {
       "file": "electron/pdf-preview.mjs",
@@ -17,15 +21,15 @@
     },
     {
       "file": "electron/main.cjs",
-      "sha256": "2c2e0c0ff5caf8596ea4183e1897f6ea891b858dc16082317c00610b7a08cc7c"
+      "sha256": "7528fdfd17312a9494b1ce66f59d6e9f00cf9343bf468a3fd86b622cd478465d"
     },
     {
       "file": "electron/preload.cjs",
-      "sha256": "d3da2bc85b75ff264c9a860c4674f73f67cc49a41ad00d2f1a88798ea9414f2f"
+      "sha256": "4d4aaf376d31c990084db23d69d9ee4148920192d9b84c11f165f6cb7ca8efdb"
     },
     {
       "file": "electron/processor.mjs",
-      "sha256": "5454e8be21698748f200fc7bbc0eeac5e555c8316700b6a27784848bfb02197f"
+      "sha256": "b38087a15aa240616ce8a049b47db49e5ad6aeaef8a9bdea50ae8b92f3435535"
     },
     {
       "file": "electron/converter.mjs",
@@ -49,7 +53,7 @@
     },
     {
       "file": "shared/catalog.mjs",
-      "sha256": "5a242edbf28a4329743e78408aaae3719866f5e8fe42634815466622386c8407"
+      "sha256": "1f274cbb03e9c369d588569917e928d7973a070f8b3ec7fe7faf4b7a3258fea3"
     },
     {
       "file": "shared/formats.mjs",
@@ -57,15 +61,15 @@
     },
     {
       "file": "dist/index.html",
-      "sha256": "8d0c1907018c8f91fce32e7d57ef3b781cbbdd81d26cc501547fa98f9a559048"
+      "sha256": "543c0d7c3607a502a82309409a10ae8834cf1454e79c9ae73fcaf0956e8fb4c4"
     },
     {
-      "file": "dist/assets/index-Bt4t2w-R.css",
-      "sha256": "8fae1a0a6db8e32338b17f2411def83a14151758c981db7fda7c4507fa3baa31"
+      "file": "dist/assets/index-BepPmvqY.js",
+      "sha256": "ff1430827d066329a8947b9c0f7ca1b12b1260877717a07c9c183d3ca9a647cf"
     },
     {
-      "file": "dist/assets/index-DPmgPOuV.js",
-      "sha256": "35fdb2f7d81cea3da92dfa3e23a4d825752c9cf6f7ee79880335e49cdfa925c7"
+      "file": "dist/assets/index-CAEWHdhJ.css",
+      "sha256": "d8a21b45be37f50a75f7cc39006e279ad945e396ce8d9ba915e09838767b57e1"
     },
     {
       "file": "voice/SwitchyardVoice.exe",

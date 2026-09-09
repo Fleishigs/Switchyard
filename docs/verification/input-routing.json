@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "windowsCaseAndSlashDeduplication": true,
+  "ocrImageAccepted": true,
+  "videoRejectsAudioOnly": true,
+  "audioAcceptsVideoSource": true
+}

@@ -1,0 +1,11 @@
+{
+  "passed": 6,
+  "results": [
+    "PNG 4x dimensions and correct transparency",
+    "JPEG 4x dimensions and correct transparency",
+    "WebP 4x dimensions and correct transparency",
+    "Missing engine reports actionable error",
+    "Cancelled operation cannot create output",
+    "Original input remains byte-identical"
+  ]
+}

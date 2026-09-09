@@ -1,0 +1,537 @@
+{
+  "passed": 106,
+  "failed": 0,
+  "scope": "Actual UI selection/options/Create result through IPC; output existence and editor persistence. Independent decoded content is covered separately in outcome-audit.",
+  "results": [
+    {
+      "tool": "image-enhance",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-resize",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-crop",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-jpeg",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-png",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-webp",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-avif",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-rotate",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-flip",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-mirror",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-grayscale",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-blur",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-sharpen",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-brightness",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-saturation",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-negative",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-trim",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-thumbnail",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-border",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-metadata",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-strip",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-wav",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-mp3",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-flac",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-aac",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-opus",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-trim",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-normalize",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-volume",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-fade-in",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-fade-out",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-reverse",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-speed",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-mono",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-denoise",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-highpass",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-lowpass",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-silence",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "audio-inspect",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-mp4",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-webm",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-trim",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-mute",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-extract",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-resize",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-compress",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-gif",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-frame",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-rotate",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-mirror",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "video-speed",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-merge",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-extract",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-rotate",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-reverse",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-metadata",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-images",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-stats",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-upper",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-lower",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-title",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-slug",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-sort",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-unique",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-trim",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-json",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-json-min",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-base64",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-unbase64",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-url",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-unurl",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-sha256",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-uuid",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-password",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-qr",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-pixelate",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-tint",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-threshold",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-rounded",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-contact",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-watermark",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-palette",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-split",
+      "pass": true,
+      "actualOutputFiles": 3
+    },
+    {
+      "tool": "pdf-delete",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-number",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-watermark",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-text",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "pdf-render",
+      "pass": true,
+      "actualOutputFiles": 3
+    },
+    {
+      "tool": "pdf-edit-info",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-csv-json",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-json-csv",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-html-escape",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-html-unescape",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-number-lines",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-replace",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-diff",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-jwt",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "text-pdf",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "unit-length",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "unit-mass",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "unit-temperature",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "unit-storage",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "date-distance",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "number-base",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "color-inspect",
+      "pass": true,
+      "actualOutputFiles": 1
+    },
+    {
+      "tool": "image-ocr",
+      "pass": true,
+      "actualOutputFiles": 1
+    }
+  ]
+}

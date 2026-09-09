@@ -1,0 +1,9 @@
+{
+  "passed": 4,
+  "results": [
+    "Real decoded waveform; Undo and Redo restore trim bounds",
+    "Selection audition stops at the actual Out point",
+    "Pointer capture moves trim handle and commits a changed source interval",
+    "Minimum 1ms audio selection exports a decoded 1ms result"
+  ]
+}

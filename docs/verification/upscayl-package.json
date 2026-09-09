@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "file": "upscayl-bin.exe",
+      "sha256": "294d31be8f29d047c0d91a8dcd5e739616ece56bce3188ac688f9a52d70abe60"
+    },
+    {
+      "file": "LICENSE",
+      "sha256": "db1a87ba81e885b6bb82971964ab4e202463cde2ac4003571bc5a857d577e4a3"
+    },
+    {
+      "file": "MODEL-LICENSE.txt",
+      "sha256": "4a699ec4863d96a91fc265948a0c90033f7e8735d515524dcf3444736406e0c2"
+    },
+    {
+      "file": "provenance.json",
+      "sha256": "ff0a9159806be3eeed23cfbe02b6e7ab0e94f4d39d025c31980ea626f302c059"
+    },
+    {
+      "file": "models/upscayl-standard-4x.bin",
+      "sha256": "713ee713b0353afaa27976f0563a64a5043bd70b9bd8936c2e26e25ebcdbcddf"
+    },
+    {
+      "file": "models/upscayl-standard-4x.param",
+      "sha256": "35330ececcea33b6c397a72548e788d5d53becee4734c50b7fada36e89f10a86"
+    },
+    {
+      "file": "models/upscayl-lite-4x.bin",
+      "sha256": "85ee266b632a765a725425ba6a5620c088c8aa2939a03063b2d83b3462724cc1"
+    },
+    {
+      "file": "models/upscayl-lite-4x.param",
+      "sha256": "22174924330297357434ad21ed0af7f4b820008d2a502b492754d130d4142714"
+    },
+    {
+      "file": "models/digital-art-4x.bin",
+      "sha256": "fe01c269cfd10cdef8e018ab66ebe750cf79c7af4d1f9c16c737e1295229bacc"
+    },
+    {
+      "file": "models/digital-art-4x.param",
+      "sha256": "2b8fb6e0ae4d2d85704ca08c119a2f5ea40add4f2ecd512eb7f4cd44b6127ed4"
+    }
+  ]
+}

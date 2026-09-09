@@ -1,0 +1,32 @@
+[
+  {
+    "model": "Upscayl Lite",
+    "milliseconds": 5571,
+    "dimensions": [
+      320,
+      240
+    ],
+    "neuralOutputDiffersFromResize": true,
+    "log": "Upscayl Upscayl Lite: 160 × 120 → 320 × 240\n[0 NVIDIA GeForce GTX 1050 Ti]  queueC=2[8]  queueG=0[16]  queueT=1[2]\r\n[0 NVIDIA GeForce GTX 1050 Ti]  bugsbn1=0  bugbilz=0  bugcopc=0  bugihfa=0\r\n[0 NVIDIA GeForce GTX 1050 Ti]  fp16-p/s/a=1/1/0  int8-p/s/a=1/1/1\r\n[0 NVIDIA GeForce GTX 1050 Ti]  subgroup=32  basic=1  vote=1  ballot=1  shuffle=1\r\n[1 Intel(R) UHD Graphics 630]  queueC=0[1]  queueG=0[1]  queueT=0[1]\r\n[1 Intel(R) UHD Graphics 630]  bugsbn1=0  bugbilz=0  bugcopc=0  bugihfa=0\r\n[1 Intel(R) UHD Graphics 630]  fp16-p/s/a=1/1/0  int8-p/s/a=1/0/0\r\n[1 Intel(R) UHD Graphics 630]  subgroup=32  basic=1  vote=1  ballot=1  shuffle=1\r\n0.00%\r\n50.00%\r\n🏞️ Resizing image according to output scale\r\n🏞️ Resized image from 160x120 to 320x240\r\n100.00\r\n\r\n🙌 Upscayled Successfully!\r\n"
+  },
+  {
+    "model": "Upscayl Standard",
+    "milliseconds": 9852,
+    "dimensions": [
+      320,
+      240
+    ],
+    "neuralOutputDiffersFromResize": true,
+    "log": "Upscayl Upscayl Standard: 160 × 120 → 320 × 240\n[0 NVIDIA GeForce GTX 1050 Ti]  queueC=2[8]  queueG=0[16]  queueT=1[2]\r\n[0 NVIDIA GeForce GTX 1050 Ti]  bugsbn1=0  bugbilz=0  bugcopc=0  bugihfa=0\r\n[0 NVIDIA GeForce GTX 1050 Ti]  fp16-p/s/a=1/1/0  int8-p/s/a=1/1/1\r\n[0 NVIDIA GeForce GTX 1050 Ti]  subgroup=32  basic=1  vote=1  ballot=1  shuffle=1\r\n[1 Intel(R) UHD Graphics 630]  queueC=0[1]  queueG=0[1]  queueT=0[1]\r\n[1 Intel(R) UHD Graphics 630]  bugsbn1=0  bugbilz=243  bugcopc=0  bugihfa=0\r\n[1 Intel(R) UHD Graphics 630]  fp16-p/s/a=1/1/0  int8-p/s/a=1/0/0\r\n[1 Intel(R) UHD Graphics 630]  subgroup=32  basic=1  vote=1  ballot=1  shuffle=1\r\n0.00%\r\n50.00%\r\n🏞️ Resizing image according to output scale\r\n🏞️ Resized image from 160x120 to 320x240\r\n100.00\r\n\r\n🙌 Upscayled Successfully!\r\n"
+  },
+  {
+    "model": "Digital Art",
+    "milliseconds": 4880,
+    "dimensions": [
+      320,
+      240
+    ],
+    "neuralOutputDiffersFromResize": true,
+    "log": "Upscayl Digital Art: 160 × 120 → 320 × 240\n[0 NVIDIA GeForce GTX 1050 Ti]  queueC=2[8]  queueG=0[16]  queueT=1[2]\r\n[0 NVIDIA GeForce GTX 1050 Ti]  bugsbn1=0  bugbilz=0  bugcopc=0  bugihfa=0\r\n[0 NVIDIA GeForce GTX 1050 Ti]  fp16-p/s/a=1/1/0  int8-p/s/a=1/1/1\r\n[0 NVIDIA GeForce GTX 1050 Ti]  subgroup=32  basic=1  vote=1  ballot=1  shuffle=1\r\n[1 Intel(R) UHD Graphics 630]  queueC=0[1]  queueG=0[1]  queueT=0[1]\r\n[1 Intel(R) UHD Graphics 630]  bugsbn1=0  bugbilz=0  bugcopc=0  bugihfa=0\r\n[1 Intel(R) UHD Graphics 630]  fp16-p/s/a=1/1/0  int8-p/s/a=1/0/0\r\n[1 Intel(R) UHD Graphics 630]  subgroup=32  basic=1  vote=1  ballot=1  shuffle=1\r\n0.00%\r\n50.00%\r\n🏞️ Resizing image according to output scale\r\n🏞️ Resized image from 160x120 to 320x240\r\n100.00\r\n\r\n🙌 Upscayled Successfully!\r\n"
+  }
+]

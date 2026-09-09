@@ -1,0 +1,29 @@
+{
+  "passed": 4,
+  "results": [
+    {
+      "tool": "download-video",
+      "pass": true,
+      "outputs": 1,
+      "resultPlayback": true
+    },
+    {
+      "tool": "download-audio",
+      "pass": true,
+      "outputs": 1,
+      "resultPlayback": true
+    },
+    {
+      "tool": "voice-transcribe",
+      "pass": true,
+      "outputs": 2,
+      "resultPlayback": false
+    },
+    {
+      "tool": "voice-vocals",
+      "pass": true,
+      "outputs": 2,
+      "resultPlayback": true
+    }
+  ]
+}

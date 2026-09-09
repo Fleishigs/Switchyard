@@ -1,0 +1,8 @@
+{
+  "passed": 3,
+  "reports": [
+    "Actual AI IPC job, alpha-preserving 2x output, detail view, comparison slider, byte-identical Save as and reuse chain",
+    "PDF order controls visually reorder inputs and saved pages match that exact order",
+    "Text comparison processes both inputs and renders actual added/removed lines"
+  ]
+}

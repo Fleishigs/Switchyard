@@ -1,0 +1,11 @@
+{
+  "passed": 6,
+  "results": [
+    "Duplicate picker paths removed; latest selected file initializes whole-clip trim",
+    "Video actually plays, pauses and steps one 20-fps frame",
+    "In/Out drafts commit correctly; zoom and pan preserve selection",
+    "Create stays in editor; only selected second clip exports the exact interval; saved result plays",
+    "Source/result navigation preserves edit; changing source resets bounds to its own duration",
+    "Create result remains visible at minimum window size"
+  ]
+}

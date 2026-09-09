@@ -1,459 +1,465 @@
 {
-  "version": "1.0.2",
-  "registeredTools": 111,
-  "toolsWithPassingOutcomeChecks": 111,
+  "version": "1.1.0",
+  "registeredTools": 112,
+  "toolsWithPassingOutcomeChecks": 112,
   "conversionRoutes": 81,
-  "executor": "C:\\Users\\koshe\\AppData\\Local\\Programs\\Switchyard\\Switchyard.exe",
+  "executor": "source processor",
   "results": [
+    {
+      "tool": "image-upscale",
+      "pass": true,
+      "assertion": "All three actual GPU models export correct dimensions and pixels different from a same-channel resize baseline",
+      "evidence": "upscayl-outcomes.json"
+    },
     {
       "tool": "image-enhance",
       "pass": true,
       "assertion": "Expands a low-contrast image, preserves dimensions and changes pixels",
-      "ms": 145
+      "ms": 181
     },
     {
       "tool": "image-resize",
       "pass": true,
       "assertion": "Fits requested bounds without changing aspect ratio",
-      "ms": 90
+      "ms": 51
     },
     {
       "tool": "image-crop",
       "pass": true,
       "assertion": "Extracts the requested source coordinates exactly",
-      "ms": 41
+      "ms": 39
     },
     {
       "tool": "image-jpeg",
       "pass": true,
       "assertion": "Decodes to the intended format and preserves image content",
-      "ms": 96
+      "ms": 85
     },
     {
       "tool": "image-png",
       "pass": true,
       "assertion": "Decodes to the intended format and preserves image content",
-      "ms": 72
+      "ms": 49
     },
     {
       "tool": "image-webp",
       "pass": true,
       "assertion": "Decodes to the intended format and preserves image content",
-      "ms": 78
+      "ms": 58
     },
     {
       "tool": "image-avif",
       "pass": true,
       "assertion": "Decodes to the intended format and preserves image content",
-      "ms": 203
+      "ms": 248
     },
     {
       "tool": "image-rotate",
       "pass": true,
       "assertion": "90 degree clockwise pixel mapping",
-      "ms": 62
+      "ms": 46
     },
     {
       "tool": "image-flip",
       "pass": true,
       "assertion": "Vertical reflection pixel mapping",
-      "ms": 70
+      "ms": 40
     },
     {
       "tool": "image-mirror",
       "pass": true,
       "assertion": "Horizontal reflection pixel mapping",
-      "ms": 73
+      "ms": 53
     },
     {
       "tool": "image-grayscale",
       "pass": true,
       "assertion": "Every decoded pixel has equal RGB channels",
-      "ms": 79
+      "ms": 34
     },
     {
       "tool": "image-blur",
       "pass": true,
       "assertion": "Reduces measured edge variation",
-      "ms": 110
+      "ms": 52
     },
     {
       "tool": "image-sharpen",
       "pass": true,
       "assertion": "Increases edge contrast on a soft input",
-      "ms": 88
+      "ms": 118
     },
     {
       "tool": "image-brightness",
       "pass": true,
       "assertion": "Lightening and darkening change channel means in opposite directions",
-      "ms": 190
+      "ms": 122
     },
     {
       "tool": "image-saturation",
       "pass": true,
       "assertion": "Zero saturation removes chroma",
-      "ms": 153
+      "ms": 145
     },
     {
       "tool": "image-negative",
       "pass": true,
       "assertion": "Inverts RGB while preserving alpha",
-      "ms": 76
+      "ms": 38
     },
     {
       "tool": "image-trim",
       "pass": true,
       "assertion": "Removes only the uniform border",
-      "ms": 79
+      "ms": 66
     },
     {
       "tool": "image-thumbnail",
       "pass": true,
       "assertion": "Produces the selected square dimensions",
-      "ms": 80
+      "ms": 39
     },
     {
       "tool": "image-border",
       "pass": true,
       "assertion": "Adds the specified color and preserves inner pixels",
-      "ms": 88
+      "ms": 33
     },
     {
       "tool": "image-metadata",
       "pass": true,
       "assertion": "Reports real dimensions, codec and EXIF",
-      "ms": 69
+      "ms": 19
     },
     {
       "tool": "image-strip",
       "pass": true,
       "assertion": "Removes actual embedded EXIF without losing dimensions",
-      "ms": 81
+      "ms": 77
     },
     {
       "tool": "audio-wav",
       "pass": true,
       "assertion": "Actual audio codec, duration and audible waveform survive conversion",
-      "ms": 384
+      "ms": 582
     },
     {
       "tool": "audio-mp3",
       "pass": true,
       "assertion": "Actual audio codec, duration and audible waveform survive conversion",
-      "ms": 429
+      "ms": 368
     },
     {
       "tool": "audio-flac",
       "pass": true,
       "assertion": "Actual audio codec, duration and audible waveform survive conversion",
-      "ms": 337
+      "ms": 329
     },
     {
       "tool": "audio-aac",
       "pass": true,
       "assertion": "Actual audio codec, duration and audible waveform survive conversion",
-      "ms": 451
+      "ms": 528
     },
     {
       "tool": "audio-opus",
       "pass": true,
       "assertion": "Actual audio codec, duration and audible waveform survive conversion",
-      "ms": 388
+      "ms": 500
     },
     {
       "tool": "audio-trim",
       "pass": true,
       "assertion": "Requested nonzero start and duration select the correct envelope",
-      "ms": 256
+      "ms": 242
     },
     {
       "tool": "audio-normalize",
       "pass": true,
       "assertion": "Measured integrated loudness reaches the advertised target",
-      "ms": 721
+      "ms": 681
     },
     {
       "tool": "audio-volume",
       "pass": true,
       "assertion": "Gain changes decoded RMS by the specified decibels",
-      "ms": 318
+      "ms": 358
     },
     {
       "tool": "audio-fade-in",
       "pass": true,
       "assertion": "Beginning attenuates while the later section stays unchanged",
-      "ms": 318
+      "ms": 287
     },
     {
       "tool": "audio-fade-out",
       "pass": true,
       "assertion": "End attenuates while the beginning stays unchanged",
-      "ms": 289
+      "ms": 264
     },
     {
       "tool": "audio-reverse",
       "pass": true,
       "assertion": "Decoded samples appear in reverse temporal order",
-      "ms": 282
+      "ms": 225
     },
     {
       "tool": "audio-speed",
       "pass": true,
       "assertion": "Double speed halves duration while preserving pitch",
-      "ms": 272
+      "ms": 264
     },
     {
       "tool": "audio-mono",
       "pass": true,
       "assertion": "Creates one channel with the mixed source signal",
-      "ms": 375
+      "ms": 419
     },
     {
       "tool": "audio-denoise",
       "pass": true,
       "assertion": "Preserves the dominant tone and attenuates quiet noise",
-      "ms": 745
+      "ms": 769
     },
     {
       "tool": "audio-highpass",
       "pass": true,
       "assertion": "Attenuates low frequencies more than high frequencies",
-      "ms": 251
+      "ms": 256
     },
     {
       "tool": "audio-lowpass",
       "pass": true,
       "assertion": "Attenuates high frequencies while retaining low frequencies",
-      "ms": 291
+      "ms": 266
     },
     {
       "tool": "audio-silence",
       "pass": true,
       "assertion": "Removes leading silence and keeps audible material",
-      "ms": 288
+      "ms": 298
     },
     {
       "tool": "audio-inspect",
       "pass": true,
       "assertion": "Reports source channel count, sample rate and duration",
-      "ms": 218
+      "ms": 140
     },
     {
       "tool": "video-mp4",
       "pass": true,
       "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
-      "ms": 560
+      "ms": 848
     },
     {
       "tool": "video-webm",
       "pass": true,
       "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
-      "ms": 687
+      "ms": 1015
     },
     {
       "tool": "video-trim",
       "pass": true,
       "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
-      "ms": 448
+      "ms": 574
     },
     {
       "tool": "video-mute",
       "pass": true,
       "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
-      "ms": 323
+      "ms": 406
     },
     {
       "tool": "video-extract",
       "pass": true,
       "assertion": "Extracted audio retains pitch and duration without video",
-      "ms": 376
+      "ms": 549
     },
     {
       "tool": "video-resize",
       "pass": true,
       "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
-      "ms": 454
+      "ms": 618
     },
     {
       "tool": "video-compress",
       "pass": true,
       "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
-      "ms": 520
+      "ms": 675
     },
     {
       "tool": "video-gif",
       "pass": true,
       "assertion": "Animated GIF has multiple decoded frames and expected duration",
-      "ms": 170
+      "ms": 272
     },
     {
       "tool": "video-frame",
       "pass": true,
       "assertion": "Extracted PNG contains the source frame at original dimensions",
-      "ms": 178
+      "ms": 181
     },
     {
       "tool": "video-rotate",
       "pass": true,
       "assertion": "Clockwise rotation maps asymmetric source pixels correctly",
-      "ms": 449
+      "ms": 579
     },
     {
       "tool": "video-mirror",
       "pass": true,
       "assertion": "Horizontally mirrors decoded frame coordinates",
-      "ms": 368
+      "ms": 401
     },
     {
       "tool": "video-speed",
       "pass": true,
       "assertion": "Decodes video frames with correct codec, dimensions, duration and stream selection",
-      "ms": 435
+      "ms": 530
     },
     {
       "tool": "pdf-merge",
       "pass": true,
       "assertion": "Combines two documents in order with text intact",
-      "ms": 467
+      "ms": 776
     },
     {
       "tool": "pdf-extract",
       "pass": true,
       "assertion": "Extracts exactly the requested pages",
-      "ms": 37
+      "ms": 43
     },
     {
       "tool": "pdf-rotate",
       "pass": true,
       "assertion": "Rotates every page while preserving content",
-      "ms": 36
+      "ms": 29
     },
     {
       "tool": "pdf-reverse",
       "pass": true,
       "assertion": "Reverses readable page content order",
-      "ms": 34
+      "ms": 30
     },
     {
       "tool": "pdf-metadata",
       "pass": true,
       "assertion": "Reads actual title, author and page count",
-      "ms": 18
+      "ms": 9
     },
     {
       "tool": "pdf-images",
       "pass": true,
       "assertion": "Embeds every source image at the correct page dimensions",
-      "ms": 546
+      "ms": 182
     },
     {
       "tool": "text-stats",
       "pass": true,
       "assertion": "Counts Unicode characters, words and lines",
-      "ms": 22
+      "ms": 5
     },
     {
       "tool": "text-upper",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 18
+      "ms": 4
     },
     {
       "tool": "text-lower",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 32
+      "ms": 3
     },
     {
       "tool": "text-title",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 17
+      "ms": 4
     },
     {
       "tool": "text-slug",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 29
+      "ms": 5
     },
     {
       "tool": "text-sort",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 93
+      "ms": 19
     },
     {
       "tool": "text-unique",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 33
+      "ms": 2
     },
     {
       "tool": "text-trim",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 24
+      "ms": 3
     },
     {
       "tool": "text-json",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 32
+      "ms": 2
     },
     {
       "tool": "text-json-min",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 35
+      "ms": 4
     },
     {
       "tool": "text-base64",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 40
+      "ms": 6
     },
     {
       "tool": "text-unbase64",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 37
+      "ms": 6
     },
     {
       "tool": "text-url",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 42
+      "ms": 3
     },
     {
       "tool": "text-unurl",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 32
+      "ms": 3
     },
     {
       "tool": "text-sha256",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 27
+      "ms": 14
     },
     {
       "tool": "text-uuid",
       "pass": true,
       "assertion": "Requested count, valid v4 UUID bits and no duplicates",
-      "ms": 33
+      "ms": 5
     },
     {
       "tool": "text-password",
       "pass": true,
       "assertion": "Requested length and distinct generated samples",
-      "ms": 143
+      "ms": 11
     },
     {
       "tool": "text-qr",
       "pass": true,
       "assertion": "Independent QR reader decodes the original Unicode payload",
-      "ms": 362
+      "ms": 298
     },
     {
       "tool": "download-video",
@@ -506,187 +512,187 @@
       "tool": "image-pixelate",
       "pass": true,
       "assertion": "Creates constant-color blocks, preserving dimensions",
-      "ms": 79
+      "ms": 54
     },
     {
       "tool": "image-tint",
       "pass": true,
       "assertion": "Requested red tint dominates blue/green",
-      "ms": 105
+      "ms": 49
     },
     {
       "tool": "image-threshold",
       "pass": true,
       "assertion": "Produces both black and white pixels and no gray",
-      "ms": 99
+      "ms": 46
     },
     {
       "tool": "image-rounded",
       "pass": true,
       "assertion": "Corners become transparent; center remains opaque",
-      "ms": 120
+      "ms": 40
     },
     {
       "tool": "image-contact",
       "pass": true,
       "assertion": "Places multiple distinct inputs in correct cells",
-      "ms": 94
+      "ms": 53
     },
     {
       "tool": "image-watermark",
       "pass": true,
       "assertion": "Changes the bottom overlay while preserving the top",
-      "ms": 134
+      "ms": 87
     },
     {
       "tool": "image-palette",
       "pass": true,
       "assertion": "Identifies a solid red source as 100 percent red",
-      "ms": 68
+      "ms": 29
     },
     {
       "tool": "pdf-split",
       "pass": true,
       "assertion": "Creates one readable PDF per original page",
-      "ms": 96
+      "ms": 34
     },
     {
       "tool": "pdf-delete",
       "pass": true,
       "assertion": "Removes only the selected page",
-      "ms": 36
+      "ms": 13
     },
     {
       "tool": "pdf-number",
       "pass": true,
       "assertion": "Adds the correct number to each page and preserves source text",
-      "ms": 89
+      "ms": 32
     },
     {
       "tool": "pdf-watermark",
       "pass": true,
       "assertion": "Watermark text appears on every page",
-      "ms": 51
+      "ms": 37
     },
     {
       "tool": "pdf-text",
       "pass": true,
       "assertion": "Extracts actual embedded content from every page",
-      "ms": 98
+      "ms": 20
     },
     {
       "tool": "pdf-render",
       "pass": true,
       "assertion": "Renders all pages with scaled dimensions and visible text pixels",
-      "ms": 168
+      "ms": 284
     },
     {
       "tool": "pdf-edit-info",
       "pass": true,
       "assertion": "Saves requested metadata without losing page content",
-      "ms": 80
+      "ms": 29
     },
     {
       "tool": "text-csv-json",
       "pass": true,
       "assertion": "Preserves quoted commas, newlines, quotes and Unicode",
-      "ms": 13
+      "ms": 3
     },
     {
       "tool": "text-json-csv",
       "pass": true,
       "assertion": "CSV round trip preserves field values and quoting",
-      "ms": 16
+      "ms": 2
     },
     {
       "tool": "text-html-escape",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 45
+      "ms": 4
     },
     {
       "tool": "text-html-unescape",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 51
+      "ms": 2
     },
     {
       "tool": "text-number-lines",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 30
+      "ms": 3
     },
     {
       "tool": "text-replace",
       "pass": true,
       "assertion": "Output matches independently specified expected content",
-      "ms": 38
+      "ms": 3
     },
     {
       "tool": "text-diff",
       "pass": true,
       "assertion": "Marks the exact removed and added lines",
-      "ms": 20
+      "ms": 5
     },
     {
       "tool": "text-jwt",
       "pass": true,
       "assertion": "Decodes known claims and reports unverified signature",
-      "ms": 14
+      "ms": 6
     },
     {
       "tool": "text-pdf",
       "pass": true,
       "assertion": "Long text paginates and preserves its final paragraph",
-      "ms": 114
+      "ms": 69
     },
     {
       "tool": "unit-length",
       "pass": true,
       "assertion": "Returns a known reference conversion",
-      "ms": 26
+      "ms": 4
     },
     {
       "tool": "unit-mass",
       "pass": true,
       "assertion": "Returns a known reference conversion",
-      "ms": 22
+      "ms": 3
     },
     {
       "tool": "unit-temperature",
       "pass": true,
       "assertion": "Returns a known reference conversion",
-      "ms": 24
+      "ms": 3
     },
     {
       "tool": "unit-storage",
       "pass": true,
       "assertion": "Returns a known reference conversion",
-      "ms": 25
+      "ms": 3
     },
     {
       "tool": "date-distance",
       "pass": true,
       "assertion": "Returns a known reference conversion",
-      "ms": 33
+      "ms": 9
     },
     {
       "tool": "number-base",
       "pass": true,
       "assertion": "Preserves large integers without floating-point rounding",
-      "ms": 20
+      "ms": 4
     },
     {
       "tool": "color-inspect",
       "pass": true,
       "assertion": "Known white and red RGB/HSL/contrast reference values",
-      "ms": 56
+      "ms": 5
     },
     {
       "tool": "image-ocr",
       "pass": true,
       "assertion": "Recognizes a known sentence and digits from image pixels",
-      "ms": 1015
+      "ms": 821
     }
   ],
   "conversions": [
