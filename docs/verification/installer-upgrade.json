@@ -1,9 +1,9 @@
 ﻿{
     "passed":  true,
-    "version":  "1.0.2",
+    "version":  "1.1.0",
     "savedStateUnchanged":  true,
     "desktopShortcutCorrect":  true,
     "installedArchiveMatches":  true,
-    "registeredVersion":  "1.0.2",
-    "installerSha256":  "8B73D7288177879F44017313A60CCFF3B22D4BDFF37108E43E6E918BBA16D067"
+    "registeredVersion":  "1.1.0",
+    "installerSha256":  "B5871F2F942081EC1BE7674685F34D9AAB8CF58780326541DAD5B079C41E35C3"
 }
