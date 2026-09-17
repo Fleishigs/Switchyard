@@ -2,6 +2,8 @@
 
 Keep this checkout small. Cleanup after completed builds, tests, and releases is part of the work; the user has authorized routine removal of obsolete generated artifacts.
 
+Release downloads should use the configured maximum compression and solid NSIS payload (`differentialPackage: false`). The `beforePack` hook pins compression level 9 and the NSIS-compatible BCJ filter; do not bypass it or use automatic filters, which can silently lose bundled ARM helper files during installation. Switchyard does not currently implement differential automatic updates. Verify the actual NSIS extractor restores every file with matching SHA-256, measure installer size, check packaged behavior, and retain all offline features before publishing a compression change.
+
 - Never delete source code, tracked files, uncommitted work, `.git`, build branding, licenses, tests, or curated verification evidence. Being ignored by Git does not make a file disposable.
 - Keep the newest published Windows installer locally in `release-final`, together with its checksum and small release metadata. Verify GitHub has the complete installer with a matching SHA-256 before removing older local installers.
 - Once release verification is complete, remove `release-final/win-unpacked`, obsolete release artifacts, temporary `.runtime*` profiles, fixtures, downloaded test media, package staging directories, and obsolete rollback backups. Save concise verification results before removing their temporary evidence.

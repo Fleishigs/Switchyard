@@ -1,0 +1,12 @@
+﻿{
+    "passed":  true,
+    "files":  41275,
+    "bytes":  4040816764,
+    "allFilesSha256Match":  true,
+    "previousInstallerBytes":  1213383735,
+    "installerBytes":  952943430,
+    "savedBytes":  260440305,
+    "reductionPercent":  21.463968692476332,
+    "nativeNsisExtraction":  true,
+    "installerSha256":  "26681493ca49155d88acbe62d26f67fdb03f7d2e02029af8f7774446fa1ede8c"
+}
