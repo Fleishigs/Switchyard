@@ -8,5 +8,10 @@
     "savedBytes":  260440305,
     "reductionPercent":  21.463968692476332,
     "nativeNsisExtraction":  true,
-    "installerSha256":  "26681493ca49155d88acbe62d26f67fdb03f7d2e02029af8f7774446fa1ede8c"
+    "installerSha256":  "26681493ca49155d88acbe62d26f67fdb03f7d2e02029af8f7774446fa1ede8c",
+    "extractedApplicationChecks":  [
+                                       "Video playback, frame stepping, input selection, trim export and result playback",
+                                       "All 13 conversion families",
+                                       "Packaged OCR worker and English model"
+                                   ]
 }
