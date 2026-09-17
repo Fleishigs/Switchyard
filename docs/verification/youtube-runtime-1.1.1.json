@@ -1,0 +1,16 @@
+﻿{
+    "passed":  true,
+    "systemRuntimesExcluded":  true,
+    "results":  [
+                    {
+                        "tool":  "download-audio",
+                        "duration":  148.6,
+                        "resultPlayback":  true
+                    },
+                    {
+                        "tool":  "download-video",
+                        "duration":  148.621,
+                        "resultPlayback":  true
+                    }
+                ]
+}

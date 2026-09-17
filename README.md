@@ -23,6 +23,8 @@ npm.cmd run package
 
 The current installer is produced in `release-final`. The Electron application also runs directly from that folder's `win-unpacked/Switchyard.exe`.
 
+YouTube downloads require a supported JavaScript runtime. The installer bundles Deno beside `yt-dlp.exe`, where yt-dlp discovers it automatically on Windows. Fresh build environments must also provide `engines/deno.exe`, its license, and provenance manifest. See `docs/RELEASE-1.1.1.md`.
+
 ## Data and boundaries
 
 Original inputs are preserved. Tool output/history live in Electron's Switchyard user-data folder; Messages keeps its own imported copy beneath that folder. Clear imported data removes that copy and imported contact names, not the source backup. Failed imports preserve the previous backup. XML export refuses missing binary attachments and preserves an existing destination if conversion fails.

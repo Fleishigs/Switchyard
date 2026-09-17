@@ -1,7 +1,7 @@
 {
   "name": "switchyard",
   "productName": "Switchyard",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A local creative toolbox for Windows",
   "author": "Switchyard Contributors",
   "license": "MIT",
@@ -77,6 +77,18 @@
       {
         "from": "engines/yt-dlp.exe",
         "to": "engines/yt-dlp.exe"
+      },
+      {
+        "from": "engines/deno.exe",
+        "to": "engines/deno.exe"
+      },
+      {
+        "from": "engines/deno-LICENSE.md",
+        "to": "engines/deno-LICENSE.md"
+      },
+      {
+        "from": "engines/deno-provenance.json",
+        "to": "engines/deno-provenance.json"
       },
       {
         "from": "voice/publish",

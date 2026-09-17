@@ -9,6 +9,7 @@ Switchyard's MIT license applies to its own code, not to every bundled engine. R
 | whisper.cpp b4938 | https://github.com/ggml-org/whisper.cpp | engines/whisper/LICENSE |
 | Whisper tiny.en weights | https://huggingface.co/ggerganov/whisper.cpp | engines/ggml-tiny.en.bin |
 | yt-dlp | https://github.com/yt-dlp/yt-dlp | engines/yt-dlp-LICENSE |
+| Deno 2.9.6 (MIT) | https://github.com/denoland/deno/releases/tag/v2.9.6 | engines/deno-LICENSE.md and engines/deno-provenance.json |
 | Python 3.13 embedded runtime | https://www.python.org/ | engines/separator/LICENSE.txt |
 | audio-separator and dependencies | https://github.com/nomadkaraoke/python-audio-separator | engines/separator/Lib/site-packages |
 | UVR MDX Inst HQ 3 weights | https://github.com/TRvlvr/model_repo | engines/models |
