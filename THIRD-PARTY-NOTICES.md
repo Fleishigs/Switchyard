@@ -21,7 +21,7 @@ Switchyard's MIT license applies to its own code, not to every bundled engine. R
 
 Additional JavaScript and native dependencies, including React, Sharp, PDF.js, pdf-lib, canvas, QRCode, YAML, TOML, XML parsing, and ZIP reading retain their package license files. Exact installed versions are recorded in package-lock.json. The voice companion uses NAudio and .NET.
 
-FFmpeg, Pandoc, LibreOffice, and other components have licensing terms distinct from Switchyard's MIT license. This local build is assembled for this workstation. Before publishing a redistributed installer, provide the corresponding source and notices required by each included build and verify the redistribution terms for model weights. No public distribution is performed by this project setup.
+FFmpeg, Pandoc, LibreOffice, and other components have licensing terms distinct from Switchyard's MIT license. Windows installers are distributed through GitHub Releases. The original build checklist requires corresponding source and notices for each included build and verification of the redistribution terms for model weights. Completion of that checklist has not been established by the repository privacy review; making this repository public does not resolve those requirements. Review the exact bundled builds and model terms before further redistribution.
 
 Message parsing and XML conversion were adapted from the user's existing Fig message-backup application. Its original project is unchanged.
 

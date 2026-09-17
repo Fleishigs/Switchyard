@@ -102,8 +102,8 @@ Warning: TT: undefined function: 21
 test at tests\converter.test.mjs:119:5
 ✖ batch image → tiff (193.8992ms)
   AssertionError [ERR_ASSERTION]: image/tiff changed center color
-      at verifyConversion (file:///C:/Users/koshe/Desktop/Tech/Ai%20Envroment/Switchyard/tests/conversion-outcomes.mjs:12:85)
-      at async TestContext.<anonymous> (file:///C:/Users/koshe/Desktop/Tech/Ai%20Envroment/Switchyard/tests/converter.test.mjs:133:7)
+      at verifyConversion (file:///C:/Users/USER/Desktop/Tech/Ai%20Envroment/Switchyard/tests/conversion-outcomes.mjs:12:85)
+      at async TestContext.<anonymous> (file:///C:/Users/USER/Desktop/Tech/Ai%20Envroment/Switchyard/tests/converter.test.mjs:133:7)
       at async Test.run (node:internal/test_runner/test:1113:7)
       at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
     generatedMessage: false,

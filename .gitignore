@@ -25,3 +25,12 @@ docs/verification/recall*
 # Verification generates local logs and screenshots; curated evidence is force-added.
 docs/verification/
 release-verified/
+
+# Local credentials and personal exports must never enter the public repository.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+cookies.txt
+cookies.sqlite

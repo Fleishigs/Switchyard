@@ -1,44 +1,83 @@
-# Switchyard
+<p align="center"><img src="docs/assets/banner.svg" alt="Switchyard — many tools, one place to make" width="100%"></p>
 
-A Windows workshop for media, documents, files, and everyday tasks. React and Electron share one Material 3 inspired interface, with local processing engines and an offline dictation companion.
+<p align="center"><strong>A local workshop for your files. Made for Windows.</strong><br>Turn photos, recordings, documents, and message backups into something useful.</p>
 
-## What is included
+<p align="center">
+  <a href="https://github.com/Fleishigs/Switchyard/releases/latest"><strong>Download for Windows →</strong></a> ·
+  <a href="https://fleishigs.github.io/Switchyard/">Explore the documentation</a> ·
+  <a href="docs/QUICK-START.md">Quick start</a>
+</p>
 
-- 111 registered tools: image processing, audio and video editing, PDF tools, OCR, text and developer utilities, calculators, downloads, transcription, and vocal separation.
-- A batch converter with compatible destinations for images, media, office documents, PDFs, archives, fonts, 3D geometry, subtitles, SQLite tables, and structured data. Unsupported files get an explicit error; compatible files continue.
-- **Messages**, built into the main interface: open a Fig ZIP/NDJSON backup, browse conversations, search globally or within a chat, view photos and play supported audio/video attachments, import vCard names, and **Export XML** for SMS Backup & Restore. “Convert another backup” exports a different source without replacing the open conversations. There is no separate Recall application or contact-converter button.
-- A queue, per-job output folders, saved history, reusable outputs, favorites, light/dark themes, and a local tool finder.
-- Switchyard Voice: Ctrl+Shift+Space dictation using whisper.cpp and a tiny English model, plus a limited set of exact Windows commands. No cloud transcription service is required.
+---
 
-## Running and building
+## Your next idea. All the right tools.
 
-On this workstation, run `npm.cmd start` after `npm.cmd run build`.
+Switchyard brings **112 tools**, a batch converter, a Messages workspace, and a local Voice companion into one app. Processing engines and English speech/OCR models come with the installer, so local file tasks work offline. Downloads need an internet connection.
 
-For a fresh checkout, install Node.js and .NET 8, run `npm.cmd ci`, and populate the engine folders listed in `package.json` under `build.extraResources`. Engines and downloaded model binaries are excluded from source control. Publish the voice project with:
+| Workspace | What you can do |
+| --- | --- |
+| **Images** | Resize, crop, convert, adjust, and upscale with local Upscayl models. AI upscaling needs a Vulkan-capable GPU. |
+| **Audio & video** | Trim with a visual timeline, convert formats, remove audio, transcribe recordings, and separate vocals from instruments. |
+| **Documents** | Work with PDFs, extract text, run English OCR, and convert supported office documents. |
+| **Batch converter** | Choose compatible destinations for images, media, documents, archives, fonts, meshes, subtitles, SQLite tables, and structured data. |
+| **Messages** | Browse Fig ZIP/NDJSON backups, search conversations, import VCF contact names, and export SMS Backup & Restore XML with supported attachments. |
+| **Text & everyday tools** | Format structured data, use text and developer utilities, generate QR codes, and run everyday calculations. |
+| **Voice** | Dictate locally with **Ctrl+Shift+Space**, optionally paste into the original window, or use the small set of exact Windows commands. |
+
+<p align="center"><img src="docs/verification/messages-empty.png" alt="Switchyard Messages workspace with controls to open a Fig backup, import contacts, and export XML" width="100%"><br><sub>Messages lives inside Switchyard. Screenshot from a verified earlier build; details may change.</sub></p>
+
+## Install & make your first result
+
+1. Open the [latest release](https://github.com/Fleishigs/Switchyard/releases/latest) and download **Switchyard-Setup-1.1.2.exe**. The ZIP/TAR source downloads are for developers.
+2. Run the installer, choose a location, and open Switchyard. This release targets **Windows x64** and is **unsigned**; Windows may show a publisher warning. Verify the download before deciding whether to run it.
+3. Add a file, press **Ctrl+K** to find a tool, adjust its settings, and create a result.
+4. Preview, compare where supported, save elsewhere, or reuse the result. **Queue & history** keeps jobs together; original inputs are preserved.
+
+**Download:** about **953 MB** for v1.1.2, 21.46% smaller than v1.1.1 with the offline engines retained. **Installed payload:** about **4.04 GB**, plus temporary installation space and your outputs. See the [release measurements](docs/RELEASE-1.1.2.md).
+
+To check the download in PowerShell, compare this result with the release's `SHA256SUMS-1.1.2.txt`:
 
 ```powershell
-dotnet publish voice/SwitchyardVoice.csproj -c Release -r win-x64 --self-contained true -o voice/publish
-npm.cmd run package
+Get-FileHash .\Switchyard-Setup-1.1.2.exe -Algorithm SHA256
 ```
 
-The current installer is produced in `release-final`. The Electron application also runs directly from that folder's `win-unpacked/Switchyard.exe`.
+## Keep your work close
 
-YouTube downloads require a supported JavaScript runtime. The installer bundles Deno beside `yt-dlp.exe`, where yt-dlp discovers it automatically on Windows. Fresh build environments must also provide `engines/deno.exe`, its license, and provenance manifest. See `docs/RELEASE-1.1.1.md`.
+- File processing, English dictation, OCR, and vocal separation run locally. **Ask Switchyard** finds existing tools; it is not a cloud chat service.
+- Outputs and history live in Electron's Switchyard user-data folder. Messages stores an imported copy there. Clearing it removes that copy and imported names, leaving the source backup intact.
+- The Voice companion stores settings and its latest transcript in `%LOCALAPPDATA%/SwitchyardVoice`. Local storage is not a claim of encryption.
+- YouTube downloads contact the source service. The installer includes yt-dlp and Deno; availability, access restrictions, and service changes can still affect downloads.
 
-## Data and boundaries
+## Learn the workflows
 
-Original inputs are preserved. Tool output/history live in Electron's Switchyard user-data folder; Messages keeps its own imported copy beneath that folder. Clear imported data removes that copy and imported contact names, not the source backup. Failed imports preserve the previous backup. XML export refuses missing binary attachments and preserves an existing destination if conversion fails.
+- [Complete illustrated guide and searchable tool catalogue](https://fleishigs.github.io/Switchyard/)
+- [Quick start: files, messages, batch conversion, and voice](docs/QUICK-START.md)
+- [Voice companion: behavior and building](voice/README.md)
+- [Latest release and extraction verification](docs/RELEASE-1.1.2.md)
+- [Outcome audit and compatibility limits](docs/OUTCOME-AUDIT.md)
+- [Third-party engines, origins, and licenses](THIRD-PARTY-NOTICES.md)
 
-Conversions are limited by the underlying engines. The format selector identifies file extensions; it is not a guarantee that every variant, codec, encrypted file, or damaged input can be read. PDF-to-document conversion extracts text rather than reconstructing the original layout. Text-only PDF creation uses a Latin font. Fonts and mesh conversions have documented preservation limits in the interface. Browser playback supports a narrower codec range than FFmpeg conversion; some phone-specific recordings may need conversion before playback.
+## Build from source
 
-ZIP message imports are extracted asynchronously and limited to 10,000 files, 2 GB total, and 250 MB per entry. Unsafe paths and links are rejected. XML exports can be large because binary attachments are base64 encoded.
+The source checkout does **not** include downloaded engine binaries or models. A fresh clone needs Node.js, .NET 8, and the resource folders listed in [`package.json` → `build.extraResources`](package.json). There is no complete one-command engine bootstrap.
 
-Downloads require internet access; the bundled processing engines, OCR model, English dictation model, and vocal-separation model run locally. The tool finder matches tasks to tools; it is not a cloud chat model. Local voice accuracy and speed depend on the microphone, language, CPU, and background noise. The full toolbox is a large download because it includes offline runtimes; the voice companion is a separate, smaller component inside the same project.
+```powershell
+npm.cmd ci
+# Populate the engine binaries, models, and licenses in build.extraResources.
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/prepare-youtube-runtime.ps1
+dotnet publish voice/SwitchyardVoice.csproj -c Release -r win-x64 --self-contained true -o voice/publish
+npm.cmd run build
+npm.cmd start
+```
 
-## Verification
+For a Windows installer, run `npm.cmd run package`. It writes to `release-final`; the newest published EXE and its checksum are retained locally. See [workspace and release rules](AGENTS.md). `npm.cmd test` runs backend checks; engine-dependent checks need the corresponding resources available. UI and packaged-app checks live under `tests`.
 
-`npm.cmd test` runs backend and conversion checks. Native Electron workflow scripts are in `tests`; `messages-native-dialogs.mjs` also operates real Windows file/save dialogs using a helper restricted to its own process. Test inputs and profiles are isolated under `.runtime-*` or temporary folders. Results are under `docs/verification`.
+## Know the boundaries
 
-The tests exercise synthetic files and supported flows; they do not establish compatibility with every possible file, microphone, or Windows configuration. Test windows are temporary and should not be used for personal work.
+Supported extensions do not guarantee support for every codec, encrypted file, or damaged input. PDF-to-document conversion extracts text rather than recreating page layout; text-only PDF creation uses a Latin font. Fonts and mesh conversions have preservation limits. Some files FFmpeg can convert cannot play directly in the app. English voice accuracy varies with the microphone, CPU, and speech.
 
-See `THIRD-PARTY-NOTICES.md` for engine origins. Switchyard's own code is MIT licensed; bundled components retain their own licenses.
+Fig ZIP imports allow up to 10,000 files, 2 GB total, and 250 MB per entry; unsafe paths and links are rejected. Failed imports preserve the previous backup. XML export refuses missing binary attachments and preserves an existing destination if conversion fails; base64 attachments can make exports large.
+
+Switchyard's own code is [MIT licensed](LICENSE). Bundled engines and models retain separate licenses; MIT does not cover the entire installer. See [third-party notices](THIRD-PARTY-NOTICES.md) for origins and redistribution requirements.
+
+Found a problem? [Open an issue](https://github.com/Fleishigs/Switchyard/issues) with the version, tool, and reproducible steps. Use synthetic examples and remove personal paths, messages, and credentials from logs.

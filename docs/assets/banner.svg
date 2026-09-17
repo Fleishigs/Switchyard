@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<title id="title">Switchyard — your everyday workshop</title><desc id="desc">Local tools for media, documents, messages and everyday tasks. Made for Windows.</desc>
+<rect width="1200" height="420" rx="24" fill="#163c30"/><circle cx="1100" cy="400" r="310" fill="#214e3c"/>
+<g transform="translate(64 52)"><rect width="58" height="58" rx="18" fill="#d7ebc9"/><path d="M29 13 46 23 29 33 12 23Z M12 31 29 41 46 31 M12 39 29 49 46 39" fill="none" stroke="#356347" stroke-width="3" stroke-linejoin="round"/></g>
+<text x="139" y="92" font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="32" fill="#f5f5e9">switchyard</text>
+<text x="64" y="192" font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="57" fill="#f5f5e9">Many tools.</text><text x="64" y="260" font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="57" fill="#d7ebc9">One place to make.</text>
+<text x="66" y="316" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#c0d2c6">Media · Documents · Messages · Voice</text>
+<text x="66" y="369" font-family="Segoe UI,Arial,sans-serif" font-size="14" letter-spacing="3" fill="#c0d2c6">YOUR EVERYDAY WORKSHOP / WINDOWS</text>
+<g transform="translate(864 80) rotate(12 94 94)"><rect width="188" height="188" rx="48" fill="#e9ebbe"/><path d="M43 119 78 80 105 107 123 91 149 119 M42 57H149V133H42Z" stroke="#356347" stroke-width="7" stroke-linejoin="round" fill="none"/><circle cx="123" cy="78" r="8" fill="#356347"/></g>
+<g transform="translate(771 266) rotate(-12 61 61)"><rect width="122" height="122" rx="34" fill="#a5c8a2"/><path d="m46 43-19 18 19 18 m30-36 19 18-19 18 M67 36 55 86" stroke="#214e3c" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+<g transform="translate(1020 276)"><rect width="117" height="90" rx="32" fill="#739c7e"/><path d="M31 37v16 M45 24v42 M59 18v54 M73 29v32 M87 37v16" stroke="#e9ebbe" stroke-width="7" stroke-linecap="round"/></g>
+</svg>
